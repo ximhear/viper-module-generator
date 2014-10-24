@@ -118,6 +118,7 @@ updated_at: 2014-08-24
 - XCode Plugins: http://nshipster.com/xcode-plugins/
 - XCodeProj gem (to modify project groups structure): https://github.com/CocoaPods/Xcodeproj
 - Thor, powerful Ruby library for command line: http://whatisthor.com/
+- Cocoa Design Patters: https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/CocoaDesignPatterns/CocoaDesignPatterns.html
 
 ## Contact
 If you have any doubt about the gem or even if you want to make any suggestion you can do it directly to my email address, pedro@redbooth.com . You can use the issues Github page too

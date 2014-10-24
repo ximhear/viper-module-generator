@@ -3,7 +3,7 @@
 //  VIPERGenDemo
 //
 //  Created by Pedro Piñera Buendía on 22/08/14.
-//  Copyright (c) 2014 ___Redbooth___. All rights reserved.
+//  Copyright (c) 2014 ___PPinera___. All rights reserved.
 //
 
 

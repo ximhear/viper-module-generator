@@ -3,9 +3,8 @@
 // Copyright (c) 2014 PPinera. All rights reserved.
 //
 
-#import "VIPERPresenter.h"
-#import "VIPERWireframe.h"
+#import "VIPERLocalDataManager.h"
 
-@implementation VIPERPresenter
+@implementation VIPERLocalDataManager
 
 @end
