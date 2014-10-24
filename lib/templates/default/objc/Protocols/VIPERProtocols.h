@@ -26,6 +26,7 @@
 
 @protocol VIPERWireFrameProtocol
 @required
++ (void)presentVIPERModuleFrom:(id)fromView;
 /**
  * Add here your methods for communication PRESENTER -> WIREFRAME
  */

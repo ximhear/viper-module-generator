@@ -10,7 +10,9 @@ import Foundation
 
 class VIPERInteractor: VIPERInteractorInputProtocol
 {
-    var presenter: VIPERInteractorOutputProtocol?
+    weak var presenter: VIPERInteractorOutputProtocol?
     var APIDataManager: VIPERAPIDataManagerInputProtocol?
     var localDatamanager: VIPERLocalDataManagerInputProtocol?
+    
+    init() {}
 }

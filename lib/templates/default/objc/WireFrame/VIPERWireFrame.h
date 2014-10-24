@@ -15,6 +15,4 @@
 
 @interface VIPERWireFrame : NSObject <VIPERWireFrameProtocol>
 
-+ (void)presentVIPERModuleFrom:(id)fromView;
-
 @end

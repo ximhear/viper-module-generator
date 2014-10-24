@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol VIPERViewProtocol
+protocol VIPERViewProtocol: class
 {
     var presenter: VIPERPresenterProtocol? { get set }
     /**
@@ -16,15 +16,15 @@ protocol VIPERViewProtocol
     */
 }
 
-protocol VIPERWireFrameProtocol
+protocol VIPERWireFrameProtocol: class
 {
-    var presenter: VIPERPresenterProtocol? { get set }
+    class func presentVIPERModule(fromView view: AnyObject)
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
 }
 
-protocol VIPERPresenterProtocol
+protocol VIPERPresenterProtocol: class
 {
     var view: VIPERViewProtocol? { get set }
     var interactor: VIPERInteractorInputProtocol? { get set }
@@ -34,14 +34,14 @@ protocol VIPERPresenterProtocol
     */
 }
 
-protocol VIPERInteractorOutputProtocol
+protocol VIPERInteractorOutputProtocol: class
 {
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
 }
 
-protocol VIPERInteractorInputProtocol
+protocol VIPERInteractorInputProtocol: class
 {
     var presenter: VIPERInteractorOutputProtocol? { get set }
     var APIDataManager: VIPERAPIDataManagerInputProtocol? { get set }
@@ -51,21 +51,21 @@ protocol VIPERInteractorInputProtocol
     */
 }
 
-protocol VIPERDataManagerInputProtocol
+protocol VIPERDataManagerInputProtocol: class
 {
     /**
     * Add here your methods for communication INTERACTOR -> DATAMANAGER
     */
 }
 
-protocol VIPERAPIDataManagerInputProtocol
+protocol VIPERAPIDataManagerInputProtocol: class
 {
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
 }
 
-protocol VIPERLocalDataManagerInputProtocol
+protocol VIPERLocalDataManagerInputProtocol: class
 {
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER

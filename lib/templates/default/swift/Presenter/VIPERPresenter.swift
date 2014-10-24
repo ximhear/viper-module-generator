@@ -10,7 +10,9 @@ import Foundation
 
 class VIPERPresenter: VIPERPresenterProtocol, VIPERInteractorOutputProtocol
 {
-    var view: VIPERViewProtocol?
+    weak var view: VIPERViewProtocol?
     var interactor: VIPERInteractorInputProtocol?
     var wireFrame: VIPERWireFrameProtocol?
+    
+    init() {}
 }
