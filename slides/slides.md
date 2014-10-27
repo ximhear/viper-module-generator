@@ -1,5 +1,5 @@
 # _VIPER_
-## En busca de la arquitectura perfecta
+## Looking for the perfect architecture
 ##### [_@pepibumur_](http://www.twitter.com/pepibumur)
 
 ![image](assets/indiana.png)
@@ -7,24 +7,24 @@
 ---
 
 ![](assets/barcelona.jpg)
-# _Índice_
-- Introducción: ViewControllers
+# _Index_
+- Introduction: ViewControllers
 - VIPER
 - Routing
 - Accesory Views
-- Ejemplo
-- Conclusiones
+- Example
+- Conclusions
 
 ---
 
 ![](assets/barcelona.jpg)
-# _Índice_
-- _Introducción: ViewControllers_
+# _Index_
+- _Introduction: ViewControllers_
 - VIPER
 - Routing
 - Accesory Views
-- Ejemplo
-- Conclusiones
+- Example
+- Conclusions
 
 ---
 
@@ -161,11 +161,19 @@ NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:[Comment en
 ### [fit] _Interactor_
 - Está asociado un único __use case__ de la aplicación
 - Trabaja con _PONSO_ entities
+- No sabe nada de UI
+- Fácil de desarrollar usando _TDD_
 
 ---
 
-![50%, inline](assets/viperschema.png)
-### _DataManager_
+![70%](assets/viperschema.png)
+
+---
+
+### [fit] _DataManager_
+- _Proovedor_ de entities al Interactor
+- Responsable de la _persistencia_ (Web, Local)
+- Las entities desconocen como persistirse a si mismas
 
 
 ---
