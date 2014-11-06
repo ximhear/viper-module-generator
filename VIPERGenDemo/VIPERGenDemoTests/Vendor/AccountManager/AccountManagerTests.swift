@@ -1,15 +1,23 @@
 //
-//  VIPERGenDemoTests.swift
-//  VIPERGenDemoTests
+//  AccountManagerTests.swift
+//  VIPERGenDemo
 //
-//  Created by Pedro Piñera Buendía on 22/08/14.
-//  Copyright (c) 2014 ___PPinera___. All rights reserved.
+//  Created by Pedro Piñera Buendía on 06/11/14.
+//  Copyright (c) 2014 ___Redbooth___. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import XCTest
+import VIPERGenDemo
 
-class VIPERGenDemoTests: XCTestCase {
+class VIPERGenDemoTests: XCTestCase
+{
+    func testIfUsernameAndPasswordArePersisted()
+    {
+        
+    }
+    
+    
     
     override func setUp() {
         super.setUp()

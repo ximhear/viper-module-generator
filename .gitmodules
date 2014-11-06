@@ -1,0 +1,3 @@
+[submodule "VIPERGenDemo/VIPERGenDemo/Libraries/sugarrecord"]
+	path = VIPERGenDemo/VIPERGenDemo/Libraries/sugarrecord
+	url = https://github.com/SugarRecord/SugarRecord.git
