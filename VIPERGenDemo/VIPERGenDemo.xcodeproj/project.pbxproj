@@ -7,28 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D95C75B1A0C27D800F08E39 /* login_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3D95C75A1A0C27D800F08E39 /* login_background.jpg */; };
+		3D95C75D1A0C2EF100F08E39 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D95C75C1A0C2EF100F08E39 /* AVFoundation.framework */; };
+		3D95C7621A0C310600F08E39 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3D95C7611A0C310600F08E39 /* video.mp4 */; };
+		3D95C7641A0C387B00F08E39 /* twitter_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D95C7631A0C387B00F08E39 /* twitter_logo.png */; };
+		3DAEB0481A0C4A6E00AC1184 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3DAEB0451A0C4A6E00AC1184 /* ProgressHUD.bundle */; };
+		3DAEB0491A0C4A6E00AC1184 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAEB0471A0C4A6E00AC1184 /* ProgressHUD.m */; };
 		3DB776C71A0C132400114CD3 /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776B51A0C132400114CD3 /* SugarRecordContextProtocol.swift */; };
-		3DB776C81A0C132400114CD3 /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776B51A0C132400114CD3 /* SugarRecordContextProtocol.swift */; };
 		3DB776C91A0C132400114CD3 /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776B61A0C132400114CD3 /* SugarRecordObjectProtocol.swift */; };
-		3DB776CA1A0C132400114CD3 /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776B61A0C132400114CD3 /* SugarRecordObjectProtocol.swift */; };
 		3DB776CB1A0C132400114CD3 /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776B71A0C132400114CD3 /* SugarRecordStackProtocol.swift */; };
-		3DB776CC1A0C132400114CD3 /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776B71A0C132400114CD3 /* SugarRecordStackProtocol.swift */; };
 		3DB776CD1A0C132400114CD3 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776B81A0C132400114CD3 /* SugarRecord.swift */; };
-		3DB776CE1A0C132400114CD3 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776B81A0C132400114CD3 /* SugarRecord.swift */; };
 		3DB776CF1A0C132400114CD3 /* SugarRecordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776B91A0C132400114CD3 /* SugarRecordFinder.swift */; };
-		3DB776D01A0C132400114CD3 /* SugarRecordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776B91A0C132400114CD3 /* SugarRecordFinder.swift */; };
 		3DB776D11A0C132400114CD3 /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776BA1A0C132400114CD3 /* SugarRecordLogger.swift */; };
-		3DB776D21A0C132400114CD3 /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776BA1A0C132400114CD3 /* SugarRecordLogger.swift */; };
 		3DB776D31A0C132400114CD3 /* DefaultCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776BC1A0C132400114CD3 /* DefaultCDStack.swift */; };
-		3DB776D41A0C132400114CD3 /* DefaultCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776BC1A0C132400114CD3 /* DefaultCDStack.swift */; };
 		3DB776D51A0C132400114CD3 /* iCloudCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776BD1A0C132400114CD3 /* iCloudCDStack.swift */; };
-		3DB776D61A0C132400114CD3 /* iCloudCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776BD1A0C132400114CD3 /* iCloudCDStack.swift */; };
 		3DB776D71A0C132400114CD3 /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776BE1A0C132400114CD3 /* NSManagedObject+SugarRecord.swift */; };
-		3DB776D81A0C132400114CD3 /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776BE1A0C132400114CD3 /* NSManagedObject+SugarRecord.swift */; };
 		3DB776DB1A0C132400114CD3 /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776C01A0C132400114CD3 /* SugarRecordCDContext.swift */; };
-		3DB776DC1A0C132400114CD3 /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776C01A0C132400114CD3 /* SugarRecordCDContext.swift */; };
 		3DB776DD1A0C132400114CD3 /* SugarRecordFinder+FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776C11A0C132400114CD3 /* SugarRecordFinder+FetchedResultsController.swift */; };
-		3DB776DE1A0C132400114CD3 /* SugarRecordFinder+FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776C11A0C132400114CD3 /* SugarRecordFinder+FetchedResultsController.swift */; };
 		3DB776E81A0C133A00114CD3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB776E71A0C133A00114CD3 /* CoreData.framework */; };
 		3DB776EA1A0C134000114CD3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB776E91A0C134000114CD3 /* Foundation.framework */; };
 		3DB776EE1A0C13BE00114CD3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776EC1A0C13BE00114CD3 /* DataModel.xcdatamodeld */; };
@@ -50,7 +45,6 @@
 		3DB777581A0C154800114CD3 /* TwitterLoginWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB777471A0C154800114CD3 /* TwitterLoginWireFrame.swift */; };
 		3DB777621A0C15DC00114CD3 /* AccountManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB777611A0C15DC00114CD3 /* AccountManagerTests.swift */; };
 		3DB777641A0C15EC00114CD3 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB777631A0C15EC00114CD3 /* AccountManager.swift */; };
-		3DB777651A0C16D100114CD3 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB777631A0C15EC00114CD3 /* AccountManager.swift */; };
 		3DB777681A0C17C200114CD3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB777671A0C17C200114CD3 /* libPods.a */; };
 		3DE115181A0C11CC00F94C43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE1150E1A0C11CC00F94C43 /* AppDelegate.swift */; };
 		3DE115191A0C11CC00F94C43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE115111A0C11CC00F94C43 /* Images.xcassets */; };
@@ -70,6 +64,13 @@
 /* Begin PBXFileReference section */
 		1F3D928AB04B0148F550DDAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		210E1ED791D55CC116DD9E04 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		3D95C75A1A0C27D800F08E39 /* login_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login_background.jpg; sourceTree = "<group>"; };
+		3D95C75C1A0C2EF100F08E39 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3D95C7611A0C310600F08E39 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		3D95C7631A0C387B00F08E39 /* twitter_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_logo.png; sourceTree = "<group>"; };
+		3DAEB0451A0C4A6E00AC1184 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		3DAEB0461A0C4A6E00AC1184 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		3DAEB0471A0C4A6E00AC1184 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		3DB776B51A0C132400114CD3 /* SugarRecordContextProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordContextProtocol.swift; sourceTree = "<group>"; };
 		3DB776B61A0C132400114CD3 /* SugarRecordObjectProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordObjectProtocol.swift; sourceTree = "<group>"; };
 		3DB776B71A0C132400114CD3 /* SugarRecordStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordStackProtocol.swift; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D95C75D1A0C2EF100F08E39 /* AVFoundation.framework in Frameworks */,
 				3DB777681A0C17C200114CD3 /* libPods.a in Frameworks */,
 				3DB776EA1A0C134000114CD3 /* Foundation.framework in Frameworks */,
 				3DB776E81A0C133A00114CD3 /* CoreData.framework in Frameworks */,
@@ -143,9 +145,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3D95C75E1A0C306600F08E39 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				3D95C7611A0C310600F08E39 /* video.mp4 */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		3DAEB0441A0C4A6E00AC1184 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				3DAEB0451A0C4A6E00AC1184 /* ProgressHUD.bundle */,
+				3DAEB0461A0C4A6E00AC1184 /* ProgressHUD.h */,
+				3DAEB0471A0C4A6E00AC1184 /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		3DB7761D1A0C12FD00114CD3 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				3DAEB0441A0C4A6E00AC1184 /* ProgressHUD */,
 				3DB776B21A0C132400114CD3 /* SugarRecord */,
 			);
 			path = Libraries;
@@ -452,6 +473,7 @@
 		3DE1150F1A0C11CC00F94C43 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3D95C75E1A0C306600F08E39 /* Videos */,
 				3DB776EB1A0C137800114CD3 /* DataModel */,
 				3DE115101A0C11CC00F94C43 /* Images */,
 				3DE115121A0C11CC00F94C43 /* XIBs */,
@@ -462,6 +484,8 @@
 		3DE115101A0C11CC00F94C43 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3D95C7631A0C387B00F08E39 /* twitter_logo.png */,
+				3D95C75A1A0C27D800F08E39 /* login_background.jpg */,
 				3DE115111A0C11CC00F94C43 /* Images.xcassets */,
 			);
 			path = Images;
@@ -494,6 +518,7 @@
 		77E8979B9ED53D41DBD0D02E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D95C75C1A0C2EF100F08E39 /* AVFoundation.framework */,
 				3DB777671A0C17C200114CD3 /* libPods.a */,
 				3DB776E91A0C134000114CD3 /* Foundation.framework */,
 				3DB776E71A0C133A00114CD3 /* CoreData.framework */,
@@ -632,6 +657,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DE115191A0C11CC00F94C43 /* Images.xcassets in Resources */,
+				3D95C7621A0C310600F08E39 /* video.mp4 in Resources */,
+				3DAEB0481A0C4A6E00AC1184 /* ProgressHUD.bundle in Resources */,
+				3D95C7641A0C387B00F08E39 /* twitter_logo.png in Resources */,
+				3D95C75B1A0C27D800F08E39 /* login_background.jpg in Resources */,
 				3DE1151C1A0C11CC00F94C43 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -690,6 +719,7 @@
 				3DB776DB1A0C132400114CD3 /* SugarRecordCDContext.swift in Sources */,
 				3DB777491A0C154800114CD3 /* TwitterListAPIDataManager.swift in Sources */,
 				3DB7774D1A0C154800114CD3 /* TwitterListPresenter.swift in Sources */,
+				3DAEB0491A0C4A6E00AC1184 /* ProgressHUD.m in Sources */,
 				3DB776C71A0C132400114CD3 /* SugarRecordContextProtocol.swift in Sources */,
 				3DB776CF1A0C132400114CD3 /* SugarRecordFinder.swift in Sources */,
 				3DB777531A0C154800114CD3 /* TwitterLoginInteractor.swift in Sources */,
@@ -713,18 +743,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DB776C81A0C132400114CD3 /* SugarRecordContextProtocol.swift in Sources */,
-				3DB776D81A0C132400114CD3 /* NSManagedObject+SugarRecord.swift in Sources */,
-				3DB776DE1A0C132400114CD3 /* SugarRecordFinder+FetchedResultsController.swift in Sources */,
-				3DB776D41A0C132400114CD3 /* DefaultCDStack.swift in Sources */,
-				3DB776D01A0C132400114CD3 /* SugarRecordFinder.swift in Sources */,
-				3DB776D61A0C132400114CD3 /* iCloudCDStack.swift in Sources */,
-				3DB776DC1A0C132400114CD3 /* SugarRecordCDContext.swift in Sources */,
-				3DB776CC1A0C132400114CD3 /* SugarRecordStackProtocol.swift in Sources */,
-				3DB777651A0C16D100114CD3 /* AccountManager.swift in Sources */,
-				3DB776CA1A0C132400114CD3 /* SugarRecordObjectProtocol.swift in Sources */,
-				3DB776CE1A0C132400114CD3 /* SugarRecord.swift in Sources */,
-				3DB776D21A0C132400114CD3 /* SugarRecordLogger.swift in Sources */,
 				3DB777621A0C15DC00114CD3 /* AccountManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,7 @@ import Foundation
 
 class TwitterLoginWireFrame: TwitterLoginWireFrameProtocol
 {
-    class func presentTwitterLoginModule(fromView view: AnyObject)
+    class func presentTwitterLoginModule(inWindow window: UIWindow)
     {
         // Generating module components
         var view: TwitterLoginViewProtocol = TwitterLoginView()
@@ -28,5 +28,8 @@ class TwitterLoginWireFrame: TwitterLoginWireFrameProtocol
         interactor.presenter = presenter
         interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
+        
+        // Presenting
+        window.rootViewController = view as? TwitterLoginView
     }
 }

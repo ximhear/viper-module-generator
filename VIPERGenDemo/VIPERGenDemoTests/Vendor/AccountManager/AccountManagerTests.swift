@@ -14,31 +14,18 @@ class VIPERGenDemoTests: XCTestCase
 {
     func testIfUsernameAndPasswordArePersisted()
     {
-        
+        AccountManager.persist(username: "test_user", password: "test_password")
+        let credentials = AccountManager.restore()
+        XCTAssertEqual(credentials.username!, "test_user", "The user should be the persisted")
+        XCTAssertEqual(credentials.password!, "test_password", "The password should be the persisted")
     }
     
-    
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testIfResetCleansTheCredentials()
+    {
+        AccountManager.persist(username: "test_user", password: "test_password")
+        AccountManager.clean()
+        let credentials = AccountManager.restore()
+        XCTAssertNil(credentials.password, "The password should be nil")
+        XCTAssertNil(credentials.username, "The username should be nil")
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }
