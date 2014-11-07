@@ -12,7 +12,7 @@ protocol VIPERViewProtocol: class
 {
     var presenter: VIPERPresenterProtocol? { get set }
     /**
-    * Add here your methods for communication VIEWCONTROLLER -> PRESENTER
+    * Add here your methods for communication PRESENTER -> VIEW
     */
 }
 
@@ -30,7 +30,7 @@ protocol VIPERPresenterProtocol: class
     var interactor: VIPERInteractorInputProtocol? { get set }
     var wireFrame: VIPERWireFrameProtocol? { get set }
     /**
-    * Add here your methods for communication VIEWCONTROLLER -> PRESENTER
+    * Add here your methods for communication VIEW -> PRESENTER
     */
 }
 
