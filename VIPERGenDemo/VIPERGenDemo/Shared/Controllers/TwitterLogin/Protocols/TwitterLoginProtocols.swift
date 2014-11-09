@@ -16,12 +16,9 @@ protocol TwitterLoginViewProtocol: class
     */
     func setLoginTitle(let title: String)
     func setLogo(let image: UIImage)
-    func setDetailText(let detailText: String)
     func showError(let errorMessage: String)
     func showLoading()
     func hideLoading()
-    func setUsernamePlaceholderText(text: String)
-    func setPasswordPlaceholderText(text: String)
 }
 
 protocol TwitterLoginWireFrameProtocol: class
@@ -41,7 +38,7 @@ protocol TwitterLoginPresenterProtocol: class
     * Add here your methods for communication VIEW -> PRESENTER
     */
     func viewDidLoad()
-    func userDidSelectLogin(#username: String?, password: String?)
+    func userDidSelectLogin()
 }
 
 protocol TwitterLoginInteractorOutputProtocol: class
@@ -59,6 +56,7 @@ protocol TwitterLoginInteractorInputProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> INTERACTOR
     */
+    func login(completion: (error: NSError?) -> ())
 }
 
 protocol TwitterLoginDataManagerInputProtocol: class
@@ -73,6 +71,7 @@ protocol TwitterLoginAPIDataManagerInputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
+    func login(completion: (error: NSError?, account: AccountEntity?) -> ())
 }
 
 protocol TwitterLoginLocalDataManagerInputProtocol: class

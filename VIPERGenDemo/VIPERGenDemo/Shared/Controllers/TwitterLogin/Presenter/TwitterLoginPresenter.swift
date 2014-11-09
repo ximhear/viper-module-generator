@@ -23,13 +23,12 @@ class TwitterLoginPresenter: TwitterLoginPresenterProtocol, TwitterLoginInteract
         if (self.view == nil) { return }
         self.view!.setLoginTitle(NSLocalizedString("Login Twitter", comment: "comment"))
         self.view!.setLogo(UIImage(named: "twitter_logo")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
-        self.view!.setDetailText(NSLocalizedString("Developed Using VIPER", comment: "comment"))
-        self.view!.setUsernamePlaceholderText(NSLocalizedString("introduce username", comment: "").capitalizedString)
-        self.view!.setPasswordPlaceholderText(NSLocalizedString("introduce password", comment: "").capitalizedString)
     }
     
-    func userDidSelectLogin(#username: String?, password: String?)
+    func userDidSelectLogin()
     {
-        
+        self.interactor?.login() { (error: NSError?) -> () in
+            
+        }
     }
 }

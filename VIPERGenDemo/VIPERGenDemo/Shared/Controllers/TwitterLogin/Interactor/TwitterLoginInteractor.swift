@@ -15,4 +15,13 @@ class TwitterLoginInteractor: TwitterLoginInteractorInputProtocol
     var localDatamanager: TwitterLoginLocalDataManagerInputProtocol?
     
     init() {}
+    
+    // MARK: - TwitterLoginInteractorInputProtocol
+    
+    func login(completion: (error: NSError?) -> ())
+    {
+        self.APIDataManager?.login() { (error: NSError?, account: AccountEntity?) -> () in
+            
+        }
+    }
 }
