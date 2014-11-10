@@ -17,9 +17,41 @@ class TwitterListPresenter: TwitterListPresenterProtocol, TwitterListInteractorO
     init() {}
     
     
-    //MARK: - TwitterListPresenterProtocol
+    // MARK: - TwitterListPresenterProtocol
     
     func viewDidLoad()
+    {
+        updateTitle()
+    }
+    
+    func composeTweet()
+    {
+        self.wireFrame?.openComposer(fromView: self.view!)
+    }
+    
+    func logout()
+    {
+        self.interactor?.logoutUser() { [weak self] (error: NSError?) -> () in
+            if error != nil {
+                self!.wireFrame!.openLogin(fromView: self!.view!)
+            }
+            else {
+                // TODO
+            }
+        }
+    }
+    
+    func refreshTweets()
+    {
+        self.interactor?.refreshTweets() { [weak self] (error: NSError?) -> () in
+            self!.view!.stopRefreshing()
+        }
+    }
+    
+    
+    // MARK - Formatting
+    
+    func updateTitle()
     {
         self.view?.setViewTitle(NSLocalizedString("timeline", comment: "").firstLetterCapitalized())
     }

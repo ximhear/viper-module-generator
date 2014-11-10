@@ -15,4 +15,17 @@ class TwitterListInteractor: TwitterListInteractorInputProtocol
     var localDatamanager: TwitterListLocalDataManagerInputProtocol?
     
     init() {}
+    
+    
+    // MARK: - TwitterListInteractorInputProtocol
+    
+    func logoutUser(completion: (error: NSError?) -> ())
+    {
+        // TODO
+    }
+    
+    func refreshTweets(completion: (error: NSError?) -> ())
+    {
+       // TODO
+    }
 }

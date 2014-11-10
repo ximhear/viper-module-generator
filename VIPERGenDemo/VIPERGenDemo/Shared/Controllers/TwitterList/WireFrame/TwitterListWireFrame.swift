@@ -30,7 +30,19 @@ class TwitterListWireFrame: TwitterListWireFrameProtocol
         interactor.localDatamanager = localDataManager
         
         // Presenting
-        let navigationController: UINavigationController = UINavigationController(rootViewController: view)
+        let navigationController: TWNavigationController = TWNavigationController(rootViewController: view)
         window.rootViewController = navigationController
+    }
+    
+    // MARK: - TwitterListWireFrameProtocol
+    
+    func openLogin(fromView view: AnyObject)
+    {
+        
+    }
+    
+    func openComposer(fromView view: AnyObject)
+    {
+        
     }
 }

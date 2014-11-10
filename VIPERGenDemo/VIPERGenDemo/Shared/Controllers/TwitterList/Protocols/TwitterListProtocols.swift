@@ -12,9 +12,10 @@ protocol TwitterListViewProtocol: class
 {
     var presenter: TwitterListPresenterProtocol? { get set }
     /**
-    * Add here your methods for communication VIEWCONTROLLER -> PRESENTER
+    * Add here your methods for communication PRESENTER -> VIEW
     */
     func setViewTitle(title: String)
+    func stopRefreshing()
 }
 
 protocol TwitterListWireFrameProtocol: class
@@ -23,6 +24,8 @@ protocol TwitterListWireFrameProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
+    func openLogin(fromView view: AnyObject)
+    func openComposer(fromView view: AnyObject)
 }
 
 protocol TwitterListPresenterProtocol: class
@@ -31,13 +34,16 @@ protocol TwitterListPresenterProtocol: class
     var interactor: TwitterListInteractorInputProtocol? { get set }
     var wireFrame: TwitterListWireFrameProtocol? { get set }
     /**
-    * Add here your methods for communication VIEWCONTROLLER -> PRESENTER
+    * Add here your methods for communication VIEW -> PRESENTER
     */
     func viewDidLoad()
     func numberOfTweets(inSection section: Int) -> Int
     func numberOfSections() -> Int
     func userDidSelectTweet(atIndexPath indexPath: NSIndexPath)
     func setTweetContent(usingPresenter presenter: AnyObject)
+    func composeTweet()
+    func logout()
+    func refreshTweets()
 }
 
 protocol TwitterListInteractorOutputProtocol: class
@@ -55,6 +61,8 @@ protocol TwitterListInteractorInputProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> INTERACTOR
     */
+    func logoutUser(completion: (error: NSError?) -> ())
+    func refreshTweets(completion: (error: NSError?) -> ())
 }
 
 protocol TwitterListDataManagerInputProtocol: class

@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 import MediaPlayer
 
-class TwitterLoginView: UIViewController, TwitterLoginViewProtocol
+class TwitterLoginView: TWViewController, TwitterLoginViewProtocol
 {
     // MARK: - Styles
     private struct Styles {
         static private let LOGIN_BUTTON_HEITHT: CGFloat = 50
-        static private let LOGIN_BUTTON_COLOR: UIColor = UIColor(red: 0.0/255, green: 132.0/255, blue: 180.0/255, alpha: 1.0)
+        static private let LOGIN_BUTTON_COLOR: UIColor = Stylesheet.COLOR_BLUE_LIGHT
         static private let FLOATING_CORNER_RADIUS: CGFloat = 10
         static private let FLOATING_HEIGHT_PERCENTAGE: CGFloat = 0.3
         static private let FLOATING_WIDTH_PERCENTAGE: CGFloat = 0.8
@@ -47,6 +47,7 @@ class TwitterLoginView: UIViewController, TwitterLoginViewProtocol
     override func viewDidLoad() {
         self.setupSubviews()
         self.setupAutolayouts()
+        self.setNeedsStatusBarAppearanceUpdate()
         self.presenter!.viewDidLoad()
     }
     
@@ -127,6 +128,6 @@ class TwitterLoginView: UIViewController, TwitterLoginViewProtocol
     // MARK: - Status Bar
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.BlackOpaque
+        return UIStatusBarStyle.LightContent
     }
 }

@@ -15,18 +15,19 @@ class TweetCell: UITableViewCell
         static let AVATAR_SIZE: CGFloat = 20
         static let BODY_TEXT_SIZE: CGFloat = 12
         static let BODY_TEXT_COLOR = UIColor(white: 0.2, alpha: 1.0)
-        static let BODY_FONT = UIFont.systemFontOfSize(Styles.BODY_TEXT_SIZE)
+        static let BODY_FONT = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         static let USERNAME_TEXT_SIZE: CGFloat = 12
         static let USERNAME_TEXT_COLOR = UIColor(white: 0.1, alpha: 1.0)
-        static let USERNAME__FONT = UIFont.boldSystemFontOfSize(Styles.BODY_TEXT_SIZE)
+        static let USERNAME__FONT = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         static let DATE_TEXT_SIZE: CGFloat = 11
         static let DATE_TEXT_COLOR = UIColor(white: 0.3, alpha: 1.0)
-        static let DATE__FONT = UIFont.systemFontOfSize(Styles.BODY_TEXT_SIZE)
+        static let DATE__FONT = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
         static let OUTTER_MARGIN: CGFloat = 10
         static let INNER_MARGIN: CGFloat = 5
     }
     
     // MARK: - Attributes
+    
     private var didUpdateConstraints: Bool = false
     lazy var dateLabel: UILabel =  {
         var label: UILabel = UILabel()

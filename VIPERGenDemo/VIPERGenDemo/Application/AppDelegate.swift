@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         TwitterListWireFrame.presentTwitterListModule(inWindow: window!)
+        //TwitterLoginWireFrame.presentTwitterLoginModule(inWindow: window!)
         window!.makeKeyAndVisible()
         return true
     }
