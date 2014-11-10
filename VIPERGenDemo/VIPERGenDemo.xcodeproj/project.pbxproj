@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D23E2AF1A0F6A5800C9C1CA /* String+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D23E2AE1A0F6A5800C9C1CA /* String+Extras.swift */; };
-		3D6D4C101A0F902700B9125C /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6D4C0F1A0F902700B9125C /* TwitterClient.swift */; };
+		3D66A0221A10AA1C009484AA /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D66A0211A10AA1C009484AA /* TwitterClient.swift */; };
+		3D66A0241A10AA45009484AA /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D66A0231A10AA45009484AA /* AccountManager.swift */; };
 		3D6D4C121A0F912000B9125C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6D4C111A0F912000B9125C /* Social.framework */; };
 		3D6D4C141A0F912700B9125C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6D4C131A0F912700B9125C /* Accounts.framework */; };
 		3D95C75B1A0C27D800F08E39 /* login_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3D95C75A1A0C27D800F08E39 /* login_background.jpg */; };
@@ -106,7 +107,8 @@
 /* Begin PBXFileReference section */
 		1F3D928AB04B0148F550DDAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D23E2AE1A0F6A5800C9C1CA /* String+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Extras.swift"; path = "Others/String+Extras.swift"; sourceTree = "<group>"; };
-		3D6D4C0F1A0F902700B9125C /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = SOURCE_ROOT; };
+		3D66A0211A10AA1C009484AA /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		3D66A0231A10AA45009484AA /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		3D6D4C111A0F912000B9125C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3D6D4C131A0F912700B9125C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3D95C75A1A0C27D800F08E39 /* login_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login_background.jpg; sourceTree = "<group>"; };
@@ -208,6 +210,22 @@
 				3DFA31861A109E1F00A60CF9 /* TWViewController.swift */,
 			);
 			name = Others;
+			sourceTree = "<group>";
+		};
+		3D66A01F1A10AA1C009484AA /* AccountManager */ = {
+			isa = PBXGroup;
+			children = (
+				3D66A0231A10AA45009484AA /* AccountManager.swift */,
+			);
+			path = AccountManager;
+			sourceTree = "<group>";
+		};
+		3D66A0201A10AA1C009484AA /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				3D66A0211A10AA1C009484AA /* TwitterClient.swift */,
+			);
+			path = APIClient;
 			sourceTree = "<group>";
 		};
 		3D95C75E1A0C306600F08E39 /* Videos */ = {
@@ -459,18 +477,11 @@
 		3DB777481A0C154800114CD3 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				3D66A01F1A10AA1C009484AA /* AccountManager */,
+				3D66A0201A10AA1C009484AA /* APIClient */,
 				3D23E2AD1A0F6A2700C9C1CA /* Others */,
-				3DB7775A1A0C156100114CD3 /* APIClient */,
 			);
 			path = Vendor;
-			sourceTree = "<group>";
-		};
-		3DB7775A1A0C156100114CD3 /* APIClient */ = {
-			isa = PBXGroup;
-			children = (
-				3D6D4C0F1A0F902700B9125C /* TwitterClient.swift */,
-			);
-			path = APIClient;
 			sourceTree = "<group>";
 		};
 		3DB7775B1A0C15BB00114CD3 /* Controllers */ = {
@@ -865,11 +876,12 @@
 				3DB777581A0C154800114CD3 /* TwitterLoginWireFrame.swift in Sources */,
 				3DB776D31A0C132400114CD3 /* DefaultCDStack.swift in Sources */,
 				3DB777551A0C154800114CD3 /* TwitterLoginPresenter.swift in Sources */,
+				3D66A0241A10AA45009484AA /* AccountManager.swift in Sources */,
 				3DE115181A0C11CC00F94C43 /* AppDelegate.swift in Sources */,
 				3DB7774E1A0C154800114CD3 /* TwitterListProtocols.swift in Sources */,
-				3D6D4C101A0F902700B9125C /* TwitterClient.swift in Sources */,
 				3DB776DD1A0C132400114CD3 /* SugarRecordFinder+FetchedResultsController.swift in Sources */,
 				3DB7774C1A0C154800114CD3 /* TwitterListItem.swift in Sources */,
+				3D66A0221A10AA1C009484AA /* TwitterClient.swift in Sources */,
 				3DB7774A1A0C154800114CD3 /* TwitterListLocalDataManager.swift in Sources */,
 				3DB777521A0C154800114CD3 /* TwitterLoginLocalDataManager.swift in Sources */,
 				3DB776D71A0C132400114CD3 /* NSManagedObject+SugarRecord.swift in Sources */,

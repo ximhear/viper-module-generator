@@ -46,7 +46,7 @@ class TwitterLoginView: TWViewController, TwitterLoginViewProtocol
 
     override func viewDidLoad() {
         self.setupSubviews()
-        self.setupAutolayouts()
+        self.setupConstraints()
         self.setNeedsStatusBarAppearanceUpdate()
         self.presenter!.viewDidLoad()
     }
@@ -63,16 +63,22 @@ class TwitterLoginView: TWViewController, TwitterLoginViewProtocol
     
     // MARK: - Subviews
     
+    /**
+     Setup subviews and add them to the main View
+     */
     private func setupSubviews()
     {
         self.backgroundVideoPlayer.play()
         self.view.addSubview(self.backgroundVideoPlayer.view)
         self.view.addSubview(self.loginButton)
-        self.loginButton.addTarget(self, action: Selector("login"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.loginButton.addTarget(self, action: Selector("userDidSelectLogin:"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.logoImageView)
     }
     
-    private func setupAutolayouts()
+    /**
+    Add Autolayouts constraints to subviews
+    */
+    private func setupConstraints()
     {
         self.backgroundVideoPlayer.view.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.backgroundVideoPlayer.view.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero)
@@ -119,7 +125,10 @@ class TwitterLoginView: TWViewController, TwitterLoginViewProtocol
     
     // MARK: Actions
     
-    func login()
+    /**
+    Notifies the selector about the user's action
+    */
+    func userDidSelectLogin(sender: AnyObject)
     {
         self.presenter?.userDidSelectLogin()
     }

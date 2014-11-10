@@ -11,6 +11,25 @@ import Foundation
 struct TwitterLoginItem
 {
     /**
-    *  Attributes here
+    *  Attributes
     */
+    var accessToken: String?
+    var error: NSError?
+    
+    // MARK: - Constructors
+    
+    init(accessToken: String?, error: NSError?)
+    {
+        self.accessToken = accessToken
+        self.error = error
+    }
+}
+
+public struct OAuthAccessToken {
+    
+    public internal(set) var key: String
+    public internal(set) var secret: String
+    public internal(set) var verifier: String?
+    public internal(set) var screenName: String?
+    public internal(set) var userID: String?
 }

@@ -57,6 +57,7 @@ protocol TwitterLoginInteractorInputProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> INTERACTOR
     */
+
     func login(completion: (error: NSError?) -> ())
 }
 
@@ -72,7 +73,7 @@ protocol TwitterLoginAPIDataManagerInputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
-    func login(completion: (error: NSError?) -> ())
+    func login(completion: (loginItem: TwitterLoginItem) -> ())
 }
 
 protocol TwitterLoginLocalDataManagerInputProtocol: class
@@ -80,4 +81,5 @@ protocol TwitterLoginLocalDataManagerInputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
+    func persistUser(#accessToken: String)
 }

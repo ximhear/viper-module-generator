@@ -11,4 +11,10 @@ import Foundation
 class TwitterLoginLocalDataManager: TwitterLoginLocalDataManagerInputProtocol
 {
     init() {}
+    
+    
+    func persistUser(#accessToken: String)
+    {
+        
+    }
 }
