@@ -14,11 +14,12 @@ protocol TwitterListViewProtocol: class
     /**
     * Add here your methods for communication VIEWCONTROLLER -> PRESENTER
     */
+    func setViewTitle(title: String)
 }
 
 protocol TwitterListWireFrameProtocol: class
 {
-    class func presentTwitterListModule(fromView view: AnyObject)
+    class func presentTwitterListModule(inWindow window: UIWindow)
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
@@ -32,6 +33,11 @@ protocol TwitterListPresenterProtocol: class
     /**
     * Add here your methods for communication VIEWCONTROLLER -> PRESENTER
     */
+    func viewDidLoad()
+    func numberOfTweets(inSection section: Int) -> Int
+    func numberOfSections() -> Int
+    func userDidSelectTweet(atIndexPath indexPath: NSIndexPath)
+    func setTweetContent(usingPresenter presenter: AnyObject)
 }
 
 protocol TwitterListInteractorOutputProtocol: class

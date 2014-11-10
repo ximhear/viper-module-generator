@@ -9,7 +9,6 @@
 
 import UIKit
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -17,8 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        TwitterLoginWireFrame.presentTwitterLoginModule(inWindow: window!)
+        TwitterListWireFrame.presentTwitterListModule(inWindow: window!)
         window!.makeKeyAndVisible()
+        return true
+    }
+    
+    func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
+        TwitterClient.handleOpenURL(url)
         return true
     }
 }

@@ -20,8 +20,6 @@ class TwitterLoginInteractor: TwitterLoginInteractorInputProtocol
     
     func login(completion: (error: NSError?) -> ())
     {
-        self.APIDataManager?.login() { (error: NSError?, account: AccountEntity?) -> () in
-            
-        }
+        self.APIDataManager?.login(completion)
     }
 }

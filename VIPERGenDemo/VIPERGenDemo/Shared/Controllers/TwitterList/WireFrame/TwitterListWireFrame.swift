@@ -10,10 +10,10 @@ import Foundation
 
 class TwitterListWireFrame: TwitterListWireFrameProtocol
 {
-    class func presentTwitterListModule(fromView view: AnyObject)
+    class func presentTwitterListModule(inWindow window: UIWindow)
     {
         // Generating module components
-        var view: TwitterListViewProtocol = TwitterListView()
+        var view: TwitterListView = TwitterListView()
         var presenter: protocol<TwitterListPresenterProtocol, TwitterListInteractorOutputProtocol> = TwitterListPresenter()
         var interactor: TwitterListInteractorInputProtocol = TwitterListInteractor()
         var APIDataManager: TwitterListAPIDataManagerInputProtocol = TwitterListAPIDataManager()
@@ -28,5 +28,9 @@ class TwitterListWireFrame: TwitterListWireFrameProtocol
         interactor.presenter = presenter
         interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
+        
+        // Presenting
+        let navigationController: UINavigationController = UINavigationController(rootViewController: view)
+        window.rootViewController = navigationController
     }
 }

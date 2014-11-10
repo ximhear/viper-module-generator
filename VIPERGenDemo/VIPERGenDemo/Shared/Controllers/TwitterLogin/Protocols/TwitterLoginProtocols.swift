@@ -27,6 +27,7 @@ protocol TwitterLoginWireFrameProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
+    func presentHome(fromView view: AnyObject, completion: ((completed: Bool) -> ())?)
 }
 
 protocol TwitterLoginPresenterProtocol: class
@@ -71,7 +72,7 @@ protocol TwitterLoginAPIDataManagerInputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
-    func login(completion: (error: NSError?, account: AccountEntity?) -> ())
+    func login(completion: (error: NSError?) -> ())
 }
 
 protocol TwitterLoginLocalDataManagerInputProtocol: class

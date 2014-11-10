@@ -50,8 +50,17 @@ class TwitterLoginView: UIViewController, TwitterLoginViewProtocol
         self.presenter!.viewDidLoad()
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.backgroundVideoPlayer.stop()
+    }
     
-    // MARK: - Autolayouts
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.backgroundVideoPlayer.play()
+    }
+    
+    // MARK: - Subviews
     
     private func setupSubviews()
     {
@@ -111,8 +120,9 @@ class TwitterLoginView: UIViewController, TwitterLoginViewProtocol
     
     func login()
     {
-        //self.presenter!.userDidSelectLogin(username: self.usernameTextField.text, password: self.passwordTextField.text)
+        self.presenter?.userDidSelectLogin()
     }
+    
     
     // MARK: - Status Bar
     

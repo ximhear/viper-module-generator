@@ -27,8 +27,13 @@ class TwitterLoginPresenter: TwitterLoginPresenterProtocol, TwitterLoginInteract
     
     func userDidSelectLogin()
     {
-        self.interactor?.login() { (error: NSError?) -> () in
-            
+        self.interactor?.login() { [weak self] (error: NSError?) -> () in
+            if error != nil {
+                self?.view?.showError(error!.localizedDescription)
+            }
+            else {
+                self?.wireFrame?.presentHome(fromView: self!.view!, completion: nil)
+            }
         }
     }
 }
