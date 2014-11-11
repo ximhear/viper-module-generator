@@ -12,9 +12,8 @@ class TwitterLoginLocalDataManager: TwitterLoginLocalDataManagerInputProtocol
 {
     init() {}
     
-    
-    func persistUser(#accessToken: String)
+    func persistUserCredentials(#credentials: TwitterLoginItem)
     {
-        
+        TwitterAccountManager.persistAccount(fromLoginItem: credentials)
     }
 }

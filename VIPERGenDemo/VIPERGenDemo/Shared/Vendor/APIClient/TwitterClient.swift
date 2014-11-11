@@ -23,7 +23,7 @@ class TwitterClient: Swifter
         _SingletonASharedInstance = sharedInstance
     }
     
-    class func requestAccesss(completion: (error: NSError?, accessToken: String?) -> ())
+    class func requestAccesss(completion: (error: NSError?, credentials: SwifterCredential.OAuthAccessToken?) -> ())
     {
         let accountStore = ACAccountStore()
         let accountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
@@ -38,10 +38,9 @@ class TwitterClient: Swifter
                 if twitterAccounts?.count == 0
                 {
                     TwitterClient.sharedInstance.authorizeWithCallbackURL(NSURL(string: "vipergen://success")!, success: { (accessToken, response) -> Void in
-                        // TODO: - What do we persist?
-                        //completion(error: nil, accessToken: accessToken)
+                        completion(error: nil, credentials: accessToken)
                     }, failure: { (error) -> Void in
-                        completion(error: error, accessToken: nil)
+                        completion(error: error, credentials: nil)
                     })
                 }
                 else {
@@ -54,7 +53,7 @@ class TwitterClient: Swifter
                     // TODO: - What do we persist?
                     //completion(error: nil, accessToken: accessToken)
                     }, failure: { (error) -> Void in
-                        completion(error: error, accessToken: nil)
+                        completion(error: error, credentials: nil)
                 })
             }
         }

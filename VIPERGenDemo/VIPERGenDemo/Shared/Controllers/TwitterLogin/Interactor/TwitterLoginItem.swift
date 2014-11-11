@@ -1,35 +1,28 @@
 //
-//  TwitterLoginItem.swift
-//  TwitterLoginGenDemo
+//  TwitterAccount.swift
+//  VIPERGenDemo
 //
-//  Created by Pedro Piñera Buendía on 24/10/14.
+//  Created by Pedro Piñera Buendía on 11/11/14.
 //  Copyright (c) 2014 ___Redbooth___. All rights reserved.
 //
 
 import Foundation
+import SwifteriOS
 
-struct TwitterLoginItem
-{
-    /**
-    *  Attributes
-    */
-    var accessToken: String?
-    var error: NSError?
+public struct TwitterLoginItem {
     
-    // MARK: - Constructors
+    public var key: String
+    public var secret: String
+    public var verifier: String?
+    public var screenName: String?
+    public var userID: String?
     
-    init(accessToken: String?, error: NSError?)
+    public init(swifterCredentials: SwifterCredential.OAuthAccessToken)
     {
-        self.accessToken = accessToken
-        self.error = error
+        self.key = swifterCredentials.key
+        self.secret = swifterCredentials.secret
+        self.verifier = swifterCredentials.verifier
+        self.screenName = swifterCredentials.screenName
+        self.userID = swifterCredentials.userID
     }
-}
-
-public struct OAuthAccessToken {
-    
-    public internal(set) var key: String
-    public internal(set) var secret: String
-    public internal(set) var verifier: String?
-    public internal(set) var screenName: String?
-    public internal(set) var userID: String?
 }

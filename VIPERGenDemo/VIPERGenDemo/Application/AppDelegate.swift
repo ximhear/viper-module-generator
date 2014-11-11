@@ -8,6 +8,7 @@
 
 
 import UIKit
+import SwifteriOS
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,8 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        //TwitterListWireFrame.presentTwitterListModule(inWindow: window!)
-        TwitterLoginWireFrame.presentTwitterLoginModule(inWindow: window!)
+        self.launchRootViewDependingOnLoggedStatus()
         window!.makeKeyAndVisible()
         return true
     }
@@ -25,5 +25,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
         TwitterClient.handleOpenURL(url)
         return true
+    }
+    
+    // MARK - Helpers
+    
+    /**
+    Check the account status and presents (Login | Home)
+    */
+    func launchRootViewDependingOnLoggedStatus()
+    {
+        if TwitterAccountManager.isUserLogged() {
+            let twitterClientSetup: Bool = self.setupTwitterClient()
+            if (!twitterClientSetup) {
+                TwitterLoginWireFrame.presentTwitterLoginModule(inWindow: window!)
+            }
+            else {
+                TwitterListWireFrame.presentTwitterListModule(inWindow: window!)
+            }
+        }
+        else {
+            TwitterLoginWireFrame.presentTwitterLoginModule(inWindow: window!)
+        }
+    }
+    
+    func setupTwitterClient() -> Bool
+    {
+        let key: String? = TwitterAccountManager.attribute(TwitterAccountAttribute.TwitterAccountAttributeKey) as? String
+        let secret: String? = TwitterAccountManager.attribute(TwitterAccountAttribute.TwitterAccountAttributeSecret) as? String
+        if (key == nil || secret == nil) { return false }
+        else {
+            TwitterClient.sharedInstance.client.credential = SwifterCredential(accessToken: SwifterCredential.OAuthAccessToken(key: key!, secret: secret!))
+            return true
+        }
     }
 }

@@ -17,10 +17,15 @@ class TwitterLoginAPIDataManager: TwitterLoginAPIDataManagerInputProtocol
     
     // MARK: - TwitterLoginAPIDataManagerInputProtocol
     
-    func login(completion: (loginItem: TwitterLoginItem) -> ())
+    func login(completion: (error: NSError?, loginItem: TwitterLoginItem?) -> ())
     {
-        TwitterClient.requestAccesss { (error, accessToken) -> () in
-            completion(loginItem: TwitterLoginItem(accessToken: accessToken, error: error))
+        TwitterClient.requestAccesss { (error, credentials) -> () in
+            if credentials != nil {
+                completion(error: nil, loginItem: TwitterLoginItem(swifterCredentials: credentials!))
+            }
+            else {
+                completion(error: error, loginItem: nil)
+            }
         }
     }
 }
