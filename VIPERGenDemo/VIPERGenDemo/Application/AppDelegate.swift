@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.launchRootViewDependingOnLoggedStatus()
+        setupStorage()
         window!.makeKeyAndVisible()
         return true
     }
@@ -48,6 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    /**
+    Restores the user account in case of having the credentials locally
+    
+    :returns: Bool indicating if the TwitterClient credentials has been properly restored
+    */
     func setupTwitterClient() -> Bool
     {
         let key: String? = TwitterAccountManager.attribute(TwitterAccountAttribute.TwitterAccountAttributeKey) as? String

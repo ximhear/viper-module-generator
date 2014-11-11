@@ -11,4 +11,14 @@ import Foundation
 class TwitterListAPIDataManager: TwitterListAPIDataManagerInputProtocol
 {
     init() {}
+    
+    func downloadTweets(#olderThan: NSDate, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
+    {
+        // TODO
+    }
+    
+    func downloadTweets(#moreRecentThan: NSDate, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
+    {
+        // TODO
+    }
 }

@@ -73,13 +73,8 @@ class TwitterListView: TWViewController, TwitterListViewProtocol, UITableViewDat
         self.navigationController?.navigationBar.barTintColor = Styles.COLOR_NAVIGATION_BAR
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Styles.COLOR_NAVIGATION_ITEMS]
         
-        // Compose Button
-        let composeButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Compose, target: self, action: Selector("userDidSelectCompose:"))
-        composeButton.tintColor = Styles.COLOR_NAVIGATION_ITEMS
-        self.navigationItem.rightBarButtonItem = composeButton
-        
         // Logout Button
-        let logoutButton: UIBarButtonItem = UIBarButtonItem(title: NSLocalizedString("logout", comment: "").firstLetterCapitalized(), style: UIBarButtonItemStyle.Done, target: self, action: Selector("userDidSelectLogout"))
+        let logoutButton: UIBarButtonItem = UIBarButtonItem(title: NSLocalizedString("logout", comment: "").firstLetterCapitalized(), style: UIBarButtonItemStyle.Done, target: self, action: Selector("userDidSelectLogout:"))
         logoutButton.setTitleTextAttributes([NSFontAttributeName: Styles.FONT_LOGOUT_BUTTON], forState: UIControlState.Normal)
         logoutButton.tintColor = Styles.COLOR_NAVIGATION_ITEMS
         self.navigationItem.leftBarButtonItem = logoutButton
@@ -93,11 +88,6 @@ class TwitterListView: TWViewController, TwitterListViewProtocol, UITableViewDat
     
     
     // MARK: - User Actions
-    
-    func userDidSelectCompose(sender: AnyObject)
-    {
-        self.presenter?.composeTweet()
-    }
     
     func userDidSelectLogout(sender: AnyObject)
     {
@@ -120,6 +110,11 @@ class TwitterListView: TWViewController, TwitterListViewProtocol, UITableViewDat
     func stopRefreshing()
     {
         self.refreshControl.endRefreshing()
+    }
+    
+    func showError(errorMessage: String)
+    {
+        ProgressHUD.showError(errorMessage)
     }
     
     

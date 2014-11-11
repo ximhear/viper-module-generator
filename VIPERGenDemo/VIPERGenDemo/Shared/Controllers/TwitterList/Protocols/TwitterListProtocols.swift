@@ -16,6 +16,7 @@ protocol TwitterListViewProtocol: class
     */
     func setViewTitle(title: String)
     func stopRefreshing()
+    func showError(errorMessage: String)
 }
 
 protocol TwitterListWireFrameProtocol: class
@@ -25,7 +26,6 @@ protocol TwitterListWireFrameProtocol: class
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
     func openLogin(fromView view: AnyObject)
-    func openComposer(fromView view: AnyObject)
 }
 
 protocol TwitterListPresenterProtocol: class
@@ -41,9 +41,9 @@ protocol TwitterListPresenterProtocol: class
     func numberOfSections() -> Int
     func userDidSelectTweet(atIndexPath indexPath: NSIndexPath)
     func setTweetContent(usingPresenter presenter: AnyObject)
-    func composeTweet()
     func logout()
     func refreshTweets()
+    func userDidScrollToBottom()
 }
 
 protocol TwitterListInteractorOutputProtocol: class
@@ -63,6 +63,8 @@ protocol TwitterListInteractorInputProtocol: class
     */
     func logoutUser(completion: (error: NSError?) -> ())
     func refreshTweets(completion: (error: NSError?) -> ())
+    func downloadOlderTweets(completion: (error: NSError?) -> ())
+    func loadLocalTweets()
 }
 
 protocol TwitterListDataManagerInputProtocol: class
@@ -77,11 +79,19 @@ protocol TwitterListAPIDataManagerInputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
+    func downloadTweets(#olderThan: NSDate, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
+    func downloadTweets(#moreRecentThan: NSDate, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
+
 }
 
 protocol TwitterListLocalDataManagerInputProtocol: class
 {
     /**
-    * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
+    * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
     */
+    func logoutUser()
+    func loadLocalTweets(#hashtag: String)
+    func mostRecentTweetDate() -> NSDate?
+    func oldestTweetDate() -> NSDate?
+    func persist(#tweets: [TwitterListItem])
 }

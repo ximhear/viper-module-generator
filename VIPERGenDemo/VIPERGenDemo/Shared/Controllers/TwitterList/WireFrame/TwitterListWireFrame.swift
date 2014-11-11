@@ -38,11 +38,6 @@ class TwitterListWireFrame: TwitterListWireFrameProtocol
     
     func openLogin(fromView view: AnyObject)
     {
-        
-    }
-    
-    func openComposer(fromView view: AnyObject)
-    {
-        
+        TwitterLoginWireFrame.presentTwitterLoginModule(inWindow: UIApplication.sharedApplication().delegate!.window!!)
     }
 }

@@ -23,6 +23,11 @@ class TwitterClient: Swifter
         _SingletonASharedInstance = sharedInstance
     }
     
+    class func reset()
+    {
+        _SingletonASharedInstance = TwitterClient(consumerKey: "U2YlcSsiOD3lxJNcxye1rpxvx", consumerSecret: "hDopZymcZeMh7LDlmEXqyL1R3J5in96iYxEHZIHKlTy0OJd8s6")
+    }
+    
     class func requestAccesss(completion: (error: NSError?, credentials: SwifterCredential.OAuthAccessToken?) -> ())
     {
         let accountStore = ACAccountStore()

@@ -24,19 +24,14 @@ class TwitterListPresenter: TwitterListPresenterProtocol, TwitterListInteractorO
         updateTitle()
     }
     
-    func composeTweet()
-    {
-        self.wireFrame?.openComposer(fromView: self.view!)
-    }
-    
     func logout()
     {
         self.interactor?.logoutUser() { [weak self] (error: NSError?) -> () in
-            if error != nil {
+            if error == nil {
                 self!.wireFrame!.openLogin(fromView: self!.view!)
             }
             else {
-                // TODO
+                self!.view!.showError(NSLocalizedString("couldn't logout", comment: "").firstLetterCapitalized())
             }
         }
     }
@@ -46,6 +41,20 @@ class TwitterListPresenter: TwitterListPresenterProtocol, TwitterListInteractorO
         self.interactor?.refreshTweets() { [weak self] (error: NSError?) -> () in
             self!.view!.stopRefreshing()
         }
+    }
+    
+    func loadLocalTweets()
+    {
+        self.interactor?.loadLocalTweets()
+    }
+    
+    func userDidScrollToBottom()
+    {
+        self.interactor?.downloadOlderTweets({ [weak self] (error) -> () in
+            if error != nil {
+                self?.view?.showError(NSLocalizedString("error loading older tweets", comment: "").firstLetterCapitalized())
+            }
+        })
     }
     
     
