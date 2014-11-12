@@ -215,7 +215,7 @@ _size > 1500 lines_ :cry:
 {
   __weak typeof(self) welf = self;
   [self.view showLoader];
-  [self.interactor sendTweetWithCompletion:^(NSError *task) {
+  [self.interactor sendTweetWithCompletion:^(NSError *error) {
   	[welf.view hideLoader];
   	if (!error) [welf.wireframe moveBack];
   }];

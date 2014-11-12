@@ -53,8 +53,8 @@ extension TwitterListItem
 
 extension TwitterListItem
 {
-    init (dict: [String: AnyObject])
-    {
-        //TODO
-    }
+//    init (dict: [String: AnyObject])
+//    {
+//        //TODO
+//    }
 }

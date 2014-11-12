@@ -40,8 +40,8 @@ class TwitterListLocalDataManager: TwitterListLocalDataManagerInputProtocol
             _ = context.beginWriting()
             
             for twitterListItem: TwitterListItem in tweets {
-                let tweet: Tweet? = Tweet.by("", equalTo: "").first().find(inContext: context) as? Tweet
-                
+//                let tweet: Tweet? = Tweet.by("", equalTo: "").first().find(inContext: context) as? Tweet
+//                
 
             }
             
