@@ -393,11 +393,13 @@ The __Presenter__:
 ```swift
 func userDidSelectLogin()
 {
+    self.view?.showLoader()
     self.interactor?.login() { [weak self] (error: NSError?) -> () in
         if error != nil {
           // What should we do here?
         }
         else {
+          self?.view?.hideLoader()
           // And here?
         }
     }
