@@ -48,7 +48,7 @@ class TwitterLoginView: TWViewController, TwitterLoginViewProtocol
         self.setupSubviews()
         self.setupConstraints()
         self.setNeedsStatusBarAppearanceUpdate()
-        self.presenter!.viewDidLoad()
+        self.presenter?.viewDidLoad()
     }
     
     override func viewDidDisappear(animated: Bool) {

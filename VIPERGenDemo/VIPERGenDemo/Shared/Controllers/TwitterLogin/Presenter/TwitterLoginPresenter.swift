@@ -20,9 +20,8 @@ class TwitterLoginPresenter: TwitterLoginPresenterProtocol, TwitterLoginInteract
     
     func viewDidLoad()
     {
-        if (self.view == nil) { return }
-        self.view!.setLoginTitle(NSLocalizedString("Login Twitter", comment: "comment"))
-        self.view!.setLogo(UIImage(named: "twitter_logo")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
+        self.view?.setLoginTitle(NSLocalizedString("Login Twitter", comment: "comment"))
+        self.view?.setLogo(UIImage(named: "twitter_logo")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
     }
     
     func userDidSelectLogin()
