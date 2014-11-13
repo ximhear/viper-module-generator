@@ -522,11 +522,11 @@
 		3DB777481A0C154800114CD3 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				3DE9BEDF1A15201D00439AB1 /* Constants.swift */,
 				3D6665791A12CD260012B6DD /* LocalServices.swift */,
 				3D66A01F1A10AA1C009484AA /* AccountManager */,
 				3D66A0201A10AA1C009484AA /* APIClient */,
 				3D23E2AD1A0F6A2700C9C1CA /* Others */,
-				3DE9BEDF1A15201D00439AB1 /* Constants.swift */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
