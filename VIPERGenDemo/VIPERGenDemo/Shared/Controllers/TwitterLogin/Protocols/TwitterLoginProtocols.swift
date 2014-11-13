@@ -27,6 +27,7 @@ protocol TwitterLoginWireFrameProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
+    func presentHome(fromView view: AnyObject, completion: ((completed: Bool) -> ())?)
 }
 
 protocol TwitterLoginPresenterProtocol: class
@@ -56,6 +57,7 @@ protocol TwitterLoginInteractorInputProtocol: class
     /**
     * Add here your methods for communication PRESENTER -> INTERACTOR
     */
+
     func login(completion: (error: NSError?) -> ())
 }
 
@@ -71,7 +73,7 @@ protocol TwitterLoginAPIDataManagerInputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
-    func login(completion: (error: NSError?, account: AccountEntity?) -> ())
+    func login(completion: (error: NSError?, loginItem: TwitterLoginItem?) -> ())
 }
 
 protocol TwitterLoginLocalDataManagerInputProtocol: class
@@ -79,4 +81,6 @@ protocol TwitterLoginLocalDataManagerInputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
+    func persistUserCredentials(#credentials: TwitterLoginItem)
+    func setupLocalStorage()
 }

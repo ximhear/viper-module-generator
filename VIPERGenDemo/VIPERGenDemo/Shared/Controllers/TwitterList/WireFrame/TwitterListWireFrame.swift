@@ -10,12 +10,12 @@ import Foundation
 
 class TwitterListWireFrame: TwitterListWireFrameProtocol
 {
-    class func presentTwitterListModule(fromView view: AnyObject)
+    class func presentTwitterListModule(inWindow window: UIWindow)
     {
         // Generating module components
-        var view: TwitterListViewProtocol = TwitterListView()
+        var view: TwitterListView = TwitterListView()
         var presenter: protocol<TwitterListPresenterProtocol, TwitterListInteractorOutputProtocol> = TwitterListPresenter()
-        var interactor: TwitterListInteractorInputProtocol = TwitterListInteractor()
+        var interactor: protocol<TwitterListInteractorInputProtocol, TwitterListLocalDataManagerOutputProtocol> = TwitterListInteractor()
         var APIDataManager: TwitterListAPIDataManagerInputProtocol = TwitterListAPIDataManager()
         var localDataManager: TwitterListLocalDataManagerInputProtocol = TwitterListLocalDataManager()
         var wireFrame: TwitterListWireFrameProtocol = TwitterListWireFrame()
@@ -28,5 +28,17 @@ class TwitterListWireFrame: TwitterListWireFrameProtocol
         interactor.presenter = presenter
         interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
+        localDataManager.interactor = interactor
+        
+        // Presenting
+        let navigationController: TWNavigationController = TWNavigationController(rootViewController: view)
+        window.rootViewController = navigationController
+    }
+    
+    // MARK: - TwitterListWireFrameProtocol
+    
+    func openLogin(fromView view: AnyObject)
+    {
+        TwitterLoginWireFrame.presentTwitterLoginModule(inWindow: UIApplication.sharedApplication().delegate!.window!!)
     }
 }

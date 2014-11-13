@@ -261,7 +261,7 @@ _size > 1500 lines_ :cry:
 {
   __weak typeof(self) welf = self;
   [self.view showLoader];
-  [self.interactor sendTweetWithCompletion:^(NSError *task) {
+  [self.interactor sendTweetWithCompletion:^(NSError *error) {
   	[welf.view hideLoader];
   	if (!error) [welf.wireframe moveBack];
   }];
@@ -373,6 +373,167 @@ _size > 1500 lines_ :cry:
 
 ---
 
+## _Twitter App_
+### __Login and Home views__
+### Written 100% in Swift
+#### [github.com/pepibumur/viper-module-generator](http://github.com/pepibumur/viper-module-generator)
+#### _Haneke, SugarRecord, Swifter, PureLayout, ProgressHUD_
+
+---
+
+# Login flow
+![left, 60%](assets/viperschema.png)
+
+---
+
+* The VIPER module is _initialized_ and _presented_ by the __Wireframe__
+* The view notifies that _DidLoad_ to the __Presenter__
+
+```swift
+override func viewDidLoad() {
+    self.setupSubviews()
+    self.setupConstraints()
+    self.setNeedsStatusBarAppearanceUpdate()
+    self.presenter?.viewDidLoad()
+}
+```
+
+![left, 60%](assets/login1.png)
+
+---
+
+* The __Presenter__ formats the View's _content_
+
+```swift
+func viewDidLoad()
+{
+    self.view?.setLoginTitle("Login Twitter")
+    self.view?.setLogo(UIImage(named: "twitter_logo")!)
+}
+```
+
+![left, 60%](assets/login2.png)
+
+---
+
+When the _user taps on Login_
+
+* The __View__ notifies the __Presenter__
+
+```swift
+func userDidSelectLogin(sender: AnyObject)
+{
+    self.presenter?.userDidSelectLogin()
+}
+```
+
+![left, 60%](assets/login3.png)
+
+---
+
+The __Presenter__:
+
+* Tells the __View__ to show a _loader_
+* Asks the __Interactor__ for _Login_
+
+```swift
+func userDidSelectLogin()
+{
+    self.view?.showLoader()
+    self.interactor?.login() { [weak self] (error: NSError?) -> () in
+        if error != nil {
+          // What should we do here?
+        }
+        else {
+          self?.view?.hideLoader()
+          // And here?
+        }
+    }
+}
+```
+
+![left, 60%](assets/login4.png)
+
+---
+
+The __Interactor__:
+
+* _Login_ the user through the __APIDataManager__
+* _Persists_ the user's credentials using the __LocalDataManager__
+
+![left, 60%](assets/login5.png)
+
+---
+
+```swift
+func login(completion: (error: NSError?) -> ())
+{
+    self.APIDataManager?.login({ [weak self] (error: NSError?, credentials: TwitterLoginItem?) -> () in
+        if (credentials != nil) {
+            self?.localDatamanager?.persistUserCredentials(credentials: credentials!)
+            completion(error: nil)
+        }
+        else {
+            completion(error: error)
+        }
+    })
+}
+```
+
+---
+
+##### APIDataManager
+
+```swift
+func login(completion: (error: NSError?, loginItem: TwitterLoginItem?) -> ())
+{
+    TwitterClient.requestAccesss { (error, credentials) -> () in
+        if credentials != nil {
+            completion(error: nil, loginItem: TwitterLoginItem(swifterCredentials: credentials!))
+        }
+        else {
+            completion(error: error, loginItem: nil)
+        }
+    }
+}
+```
+
+---
+
+##### LocalDataManager
+
+```swift
+func persistUserCredentials(#credentials: TwitterLoginItem)
+{
+    TwitterAccountManager.persistAccount(fromLoginItem: credentials)
+}
+```
+
+---
+
+_If the login fails_
+
+* The __Presenter__ asks the __View__ to show an error
+
+```swift
+func showError(let errorMessage: String)
+{
+    ProgressHUD.showError(errorMessage)
+}
+```
+
+_If the login success_
+
+* The __Presenter__ asks the __Wireframe__ to show the home view
+
+![left, 60%](assets/login6.png)
+
+---
+
+# Demo
+
+---
+
 ![](assets/barcelona.jpg)
 # _Index_
 - ViewControllers
@@ -400,11 +561,11 @@ _size > 1500 lines_ :cry:
 
 ---
 
-# Resources
+# _Resources_
 - [VIPER Module Generator](https://github.com/teambox/viper-module-generator)
 - [Objc.io post](http://www.objc.io/issue-13/viper.html)
 - [Mutual Mobile Engineering blog post](http://mutualmobile.github.io/blog/2013/12/04/viper-introduction/)
-- Dobuts/Ideas/Suggestions [pepibumur@gmail.com](mailto://pepibumur@gmail.com)
+- Dobuts/Ideas/Suggestions on Github issues
 
 ---
 

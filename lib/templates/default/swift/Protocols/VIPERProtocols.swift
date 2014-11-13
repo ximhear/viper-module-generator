@@ -68,6 +68,6 @@ protocol VIPERAPIDataManagerInputProtocol: class
 protocol VIPERLocalDataManagerInputProtocol: class
 {
     /**
-    * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
+    * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
     */
 }

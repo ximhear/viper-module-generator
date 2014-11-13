@@ -16,12 +16,20 @@ class TwitterLoginInteractor: TwitterLoginInteractorInputProtocol
     
     init() {}
     
+    
     // MARK: - TwitterLoginInteractorInputProtocol
     
     func login(completion: (error: NSError?) -> ())
     {
-        self.APIDataManager?.login() { (error: NSError?, account: AccountEntity?) -> () in
-            
-        }
+        self.APIDataManager?.login({ [weak self] (error: NSError?, credentials: TwitterLoginItem?) -> () in
+            if (credentials != nil) {
+                self?.localDatamanager?.persistUserCredentials(credentials: credentials!)
+                self?.localDatamanager?.setupLocalStorage()
+                completion(error: nil)
+            }
+            else {
+                completion(error: error)
+            }
+        })
     }
 }

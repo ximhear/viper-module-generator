@@ -32,4 +32,9 @@ class TwitterLoginWireFrame: TwitterLoginWireFrameProtocol
         // Presenting
         window.rootViewController = view as? TwitterLoginView
     }
+    
+    func presentHome(fromView view: AnyObject, completion: ((completed: Bool) -> ())?)
+    {
+        TwitterListWireFrame.presentTwitterListModule(inWindow: UIApplication.sharedApplication().delegate!.window!!)
+    }
 }

@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 import MediaPlayer
 
-class TwitterLoginView: UIViewController, TwitterLoginViewProtocol
+class TwitterLoginView: TWViewController, TwitterLoginViewProtocol
 {
     // MARK: - Styles
     private struct Styles {
         static private let LOGIN_BUTTON_HEITHT: CGFloat = 50
-        static private let LOGIN_BUTTON_COLOR: UIColor = UIColor(red: 0.0/255, green: 132.0/255, blue: 180.0/255, alpha: 1.0)
+        static private let LOGIN_BUTTON_COLOR: UIColor = Stylesheet.COLOR_BLUE_LIGHT
         static private let FLOATING_CORNER_RADIUS: CGFloat = 10
         static private let FLOATING_HEIGHT_PERCENTAGE: CGFloat = 0.3
         static private let FLOATING_WIDTH_PERCENTAGE: CGFloat = 0.8
@@ -46,23 +46,39 @@ class TwitterLoginView: UIViewController, TwitterLoginViewProtocol
 
     override func viewDidLoad() {
         self.setupSubviews()
-        self.setupAutolayouts()
-        self.presenter!.viewDidLoad()
+        self.setupConstraints()
+        self.setNeedsStatusBarAppearanceUpdate()
+        self.presenter?.viewDidLoad()
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.backgroundVideoPlayer.stop()
+    }
     
-    // MARK: - Autolayouts
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.backgroundVideoPlayer.play()
+    }
     
+    // MARK: - Subviews
+    
+    /**
+     Setup subviews and add them to the main View
+     */
     private func setupSubviews()
     {
         self.backgroundVideoPlayer.play()
         self.view.addSubview(self.backgroundVideoPlayer.view)
         self.view.addSubview(self.loginButton)
-        self.loginButton.addTarget(self, action: Selector("login"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.loginButton.addTarget(self, action: Selector("userDidSelectLogin:"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.logoImageView)
     }
     
-    private func setupAutolayouts()
+    /**
+    Add Autolayouts constraints to subviews
+    */
+    private func setupConstraints()
     {
         self.backgroundVideoPlayer.view.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.backgroundVideoPlayer.view.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero)
@@ -109,14 +125,18 @@ class TwitterLoginView: UIViewController, TwitterLoginViewProtocol
     
     // MARK: Actions
     
-    func login()
+    /**
+    Notifies the selector about the user's action
+    */
+    func userDidSelectLogin(sender: AnyObject)
     {
-        //self.presenter!.userDidSelectLogin(username: self.usernameTextField.text, password: self.passwordTextField.text)
+        self.presenter?.userDidSelectLogin()
     }
+    
     
     // MARK: - Status Bar
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.BlackOpaque
+        return UIStatusBarStyle.LightContent
     }
 }

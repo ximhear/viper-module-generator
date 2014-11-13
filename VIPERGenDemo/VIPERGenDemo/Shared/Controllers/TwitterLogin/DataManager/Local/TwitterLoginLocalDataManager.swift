@@ -11,4 +11,15 @@ import Foundation
 class TwitterLoginLocalDataManager: TwitterLoginLocalDataManagerInputProtocol
 {
     init() {}
+    
+    func persistUserCredentials(#credentials: TwitterLoginItem)
+    {
+        TwitterAccountManager.persistAccount(fromLoginItem: credentials)
+    }
+    
+    func setupLocalStorage()
+    {
+        SugarRecord.removeDatabase()
+        setupStorage()
+    }
 }

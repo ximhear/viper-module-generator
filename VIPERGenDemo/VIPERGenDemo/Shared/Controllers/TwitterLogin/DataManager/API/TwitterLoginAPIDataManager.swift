@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Accounts
+import Social
 import SwifteriOS
 
 class TwitterLoginAPIDataManager: TwitterLoginAPIDataManagerInputProtocol
@@ -15,20 +17,15 @@ class TwitterLoginAPIDataManager: TwitterLoginAPIDataManagerInputProtocol
     
     // MARK: - TwitterLoginAPIDataManagerInputProtocol
     
-    func login(completion: (error: NSError?, account: AccountEntity?) -> ())
+    func login(completion: (error: NSError?, loginItem: TwitterLoginItem?) -> ())
     {
-        let swifter = Swifter(consumerKey: "U2YlcSsiOD3lxJNcxye1rpxvx", consumerSecret: "hDopZymcZeMh7LDlmEXqyL1R3J5in96iYxEHZIHKlTy0OJd8s6")
-        swifter.authorizeWithCallbackURL(NSURL(string: "")!, success: {
-            (accessToken: SwifterCredential.OAuthAccessToken?, response: NSURLResponse) in
-            
-            // ...
-            
-            },
-            failure: {
-                (error: NSError) in
-                
-                // ...
-                
-        })
+        TwitterClient.requestAccesss { (error, credentials) -> () in
+            if credentials != nil {
+                completion(error: nil, loginItem: TwitterLoginItem(swifterCredentials: credentials!))
+            }
+            else {
+                completion(error: error, loginItem: nil)
+            }
+        }
     }
 }

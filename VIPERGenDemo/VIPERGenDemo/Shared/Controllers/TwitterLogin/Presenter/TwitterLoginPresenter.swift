@@ -20,15 +20,19 @@ class TwitterLoginPresenter: TwitterLoginPresenterProtocol, TwitterLoginInteract
     
     func viewDidLoad()
     {
-        if (self.view == nil) { return }
-        self.view!.setLoginTitle(NSLocalizedString("Login Twitter", comment: "comment"))
-        self.view!.setLogo(UIImage(named: "twitter_logo")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
+        self.view?.setLoginTitle(NSLocalizedString("Login Twitter", comment: "comment"))
+        self.view?.setLogo(UIImage(named: "twitter_logo")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
     }
     
     func userDidSelectLogin()
     {
-        self.interactor?.login() { (error: NSError?) -> () in
-            
+        self.interactor?.login() { [weak self] (error: NSError?) -> () in
+            if error != nil {
+                self?.view?.showError(error!.localizedDescription)
+            }
+            else {
+                self?.wireFrame?.presentHome(fromView: self!.view!, completion: nil)
+            }
         }
     }
 }

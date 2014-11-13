@@ -34,11 +34,12 @@ The implementation scheme returned by this generator is hardly inspired in the e
 - Added default template
 - Fully components tested
 
-### Expected in version 0.2
-- Example project of Redbooth login with notifications
-- FetchedResultsController template
-- Default template in Swift
-- Login template
+### Changelog 0.2.3
+- VIPER Example using the Twitter API 
+- Default template implemented in Swift
+- 
+
+### Expected in version 0.3
 - Integrate with XCode as a plugin (http://nshipster.com/xcode-plugins/)
 
 ## Viper files structure
@@ -88,6 +89,15 @@ You have just to execute the following command
 vipergen generate MyFirstViperModule --path=~/myproject/shared
 ```
 And then the files structure will be automatically created. Don't forget to add this folder to your project dragging it into the XCode/Appcode inspector
+
+## How can I try the demo project?
+
+1. Clone the repo `git clone https://github.com/pepibumur/viper-module-generator.git`
+2. Move into the repo folder and update the git submodules `git sumodule update --init`
+3. In the folder VIPERGenDemo install the pods `pod install`
+4. Open the project from the `VIPERGenDemo.xcworkspace` file
+5. Enjoy it!
+
 
 ## Developer tips
 ### Update the gem 
