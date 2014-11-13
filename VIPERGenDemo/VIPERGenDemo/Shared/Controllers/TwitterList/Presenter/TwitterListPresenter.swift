@@ -23,6 +23,7 @@ class TwitterListPresenter: TwitterListPresenterProtocol, TwitterListInteractorO
     {
         updateTitle()
         loadLocalTweets()
+        self.interactor?.refreshTweets({ (error) -> () in})
     }
     
     func logout()

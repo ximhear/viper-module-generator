@@ -55,6 +55,7 @@
 		3DBE4D091A0F8011002ED525 /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBE4D021A0F8005002ED525 /* SwifteriOS.framework */; };
 		3DE115181A0C11CC00F94C43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE1150E1A0C11CC00F94C43 /* AppDelegate.swift */; };
 		3DE115191A0C11CC00F94C43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE115111A0C11CC00F94C43 /* Images.xcassets */; };
+		3DE9BEE01A15201D00439AB1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE9BEDF1A15201D00439AB1 /* Constants.swift */; };
 		3DFA31811A1089FC00A60CF9 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFA31801A1089FC00A60CF9 /* TweetCell.swift */; };
 		3DFA31831A109BF800A60CF9 /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFA31821A109BF800A60CF9 /* Stylesheet.swift */; };
 		3DFA31851A109DD200A60CF9 /* TWNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFA31841A109DD200A60CF9 /* TWNavigationController.swift */; };
@@ -185,6 +186,7 @@
 		3DE1150E1A0C11CC00F94C43 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DE115111A0C11CC00F94C43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3DE115171A0C11CC00F94C43 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DE9BEDF1A15201D00439AB1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3DFA31801A1089FC00A60CF9 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TweetCell.swift; path = Views/Cells/TweetCell.swift; sourceTree = "<group>"; };
 		3DFA31821A109BF800A60CF9 /* Stylesheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stylesheet.swift; path = Others/Stylesheet.swift; sourceTree = "<group>"; };
 		3DFA31841A109DD200A60CF9 /* TWNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TWNavigationController.swift; path = Others/TWNavigationController.swift; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 				3D66A01F1A10AA1C009484AA /* AccountManager */,
 				3D66A0201A10AA1C009484AA /* APIClient */,
 				3D23E2AD1A0F6A2700C9C1CA /* Others */,
+				3DE9BEDF1A15201D00439AB1 /* Constants.swift */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -945,6 +948,7 @@
 				3DB777531A0C154800114CD3 /* TwitterLoginInteractor.swift in Sources */,
 				3D23E2AF1A0F6A5800C9C1CA /* String+Extras.swift in Sources */,
 				3DB777581A0C154800114CD3 /* TwitterLoginWireFrame.swift in Sources */,
+				3DE9BEE01A15201D00439AB1 /* Constants.swift in Sources */,
 				3D66657A1A12CD260012B6DD /* LocalServices.swift in Sources */,
 				3DB776D31A0C132400114CD3 /* DefaultCDStack.swift in Sources */,
 				3DB777551A0C154800114CD3 /* TwitterLoginPresenter.swift in Sources */,

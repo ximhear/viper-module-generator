@@ -13,7 +13,7 @@ class TweetCell: UITableViewCell, TwitterListItemViewProtocol
 {
     private  struct Styles
     {
-        static let AVATAR_SIZE: CGFloat = 20
+        static let AVATAR_SIZE: CGFloat = 40
         static let BODY_TEXT_SIZE: CGFloat = 12
         static let BODY_TEXT_COLOR = UIColor(white: 0.2, alpha: 1.0)
         static let BODY_FONT = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
@@ -61,7 +61,7 @@ class TweetCell: UITableViewCell, TwitterListItemViewProtocol
         imageView.clipsToBounds = true
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = Styles.AVATAR_SIZE/2
-        imageView.backgroundColor = UIColor.redColor()
+        imageView.backgroundColor = UIColor.whiteColor()
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.setTranslatesAutoresizingMaskIntoConstraints(false)
         return imageView

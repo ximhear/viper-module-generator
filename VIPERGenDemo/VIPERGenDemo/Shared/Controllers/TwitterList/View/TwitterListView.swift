@@ -39,7 +39,7 @@ class TwitterListView: TWViewController, TwitterListViewProtocol, UITableViewDat
         var control: UIRefreshControl = UIRefreshControl()
         control.tintColor = Styles.COLOR_REFRESH_CONTROL
         control.backgroundColor = Styles.COLOR_REFRESH_CONTROL_BACKGROUND
-        control.attributedTitle = NSAttributedString(string: NSLocalizedString("refreshing tweets with #viper", comment: ""), attributes: [NSFontAttributeName: Styles.FONT_REFRESH_CONTROL, NSForegroundColorAttributeName: Styles.COLOR_REFRESH_CONTROL])
+        control.attributedTitle = NSAttributedString(string: NSLocalizedString("refreshing tweets with #\(TWITTER_SEARCH_TERM)", comment: ""), attributes: [NSFontAttributeName: Styles.FONT_REFRESH_CONTROL, NSForegroundColorAttributeName: Styles.COLOR_REFRESH_CONTROL])
         return control
     }()
     
