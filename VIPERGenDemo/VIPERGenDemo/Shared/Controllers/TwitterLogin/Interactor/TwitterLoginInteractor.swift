@@ -24,6 +24,7 @@ class TwitterLoginInteractor: TwitterLoginInteractorInputProtocol
         self.APIDataManager?.login({ [weak self] (error: NSError?, credentials: TwitterLoginItem?) -> () in
             if (credentials != nil) {
                 self?.localDatamanager?.persistUserCredentials(credentials: credentials!)
+                self?.localDatamanager?.setupLocalStorage()
                 completion(error: nil)
             }
             else {

@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.launchRootViewDependingOnLoggedStatus()
         setupStorage()
+        self.launchRootViewDependingOnLoggedStatus()
         window!.makeKeyAndVisible()
         return true
     }
@@ -63,5 +63,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             TwitterClient.sharedInstance.client.credential = SwifterCredential(accessToken: SwifterCredential.OAuthAccessToken(key: key!, secret: secret!))
             return true
         }
+    }
+    
+    func applicationWillResignActive(application: UIApplication!) {
+        SugarRecord.applicationWillResignActive()
+    }
+    
+    func applicationWillEnterForeground(application: UIApplication!) {
+        SugarRecord.applicationWillEnterForeground()
+    }
+    
+    func applicationWillTerminate(application: UIApplication!) {
+        SugarRecord.applicationWillTerminate()
     }
 }

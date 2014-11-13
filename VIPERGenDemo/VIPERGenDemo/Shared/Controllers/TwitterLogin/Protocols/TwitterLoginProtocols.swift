@@ -82,4 +82,5 @@ protocol TwitterLoginLocalDataManagerInputProtocol: class
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
     func persistUserCredentials(#credentials: TwitterLoginItem)
+    func setupLocalStorage()
 }
