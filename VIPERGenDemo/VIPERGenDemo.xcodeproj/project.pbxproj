@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3D12551D1A1440D800AB6B6F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D12551B1A1440D800AB6B6F /* Model.xcdatamodeld */; };
-		3D12551F1A14410F00AB6B6F /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12551E1A14410F00AB6B6F /* Tweet.swift */; };
 		3D23E2AF1A0F6A5800C9C1CA /* String+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D23E2AE1A0F6A5800C9C1CA /* String+Extras.swift */; };
 		3D2635741A11368000EC40F3 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D26356A1A11367400EC40F3 /* Haneke.framework */; };
 		3D64BB021A12AE990001D665 /* TwitterLoginItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D64BB011A12AE990001D665 /* TwitterLoginItem.swift */; };
@@ -24,6 +23,7 @@
 		3D95C7641A0C387B00F08E39 /* twitter_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D95C7631A0C387B00F08E39 /* twitter_logo.png */; };
 		3DAEB0481A0C4A6E00AC1184 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3DAEB0451A0C4A6E00AC1184 /* ProgressHUD.bundle */; };
 		3DAEB0491A0C4A6E00AC1184 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAEB0471A0C4A6E00AC1184 /* ProgressHUD.m */; };
+		3DB126681A14AE8A00C5E9D2 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB126671A14AE8A00C5E9D2 /* Tweet.swift */; };
 		3DB776C71A0C132400114CD3 /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776B51A0C132400114CD3 /* SugarRecordContextProtocol.swift */; };
 		3DB776C91A0C132400114CD3 /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776B61A0C132400114CD3 /* SugarRecordObjectProtocol.swift */; };
 		3DB776CB1A0C132400114CD3 /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB776B71A0C132400114CD3 /* SugarRecordStackProtocol.swift */; };
@@ -132,7 +132,6 @@
 /* Begin PBXFileReference section */
 		1F3D928AB04B0148F550DDAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D12551C1A1440D800AB6B6F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		3D12551E1A14410F00AB6B6F /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tweet.swift; path = DataModel/Tweet.swift; sourceTree = "<group>"; };
 		3D23E2AE1A0F6A5800C9C1CA /* String+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Extras.swift"; path = "Others/String+Extras.swift"; sourceTree = "<group>"; };
 		3D2635621A11367400EC40F3 /* Haneke.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Haneke.xcodeproj; path = hanekeswift/Haneke.xcodeproj; sourceTree = "<group>"; };
 		3D64BB011A12AE990001D665 /* TwitterLoginItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterLoginItem.swift; sourceTree = "<group>"; };
@@ -151,6 +150,7 @@
 		3DAEB0451A0C4A6E00AC1184 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		3DAEB0461A0C4A6E00AC1184 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		3DAEB0471A0C4A6E00AC1184 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		3DB126671A14AE8A00C5E9D2 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tweet.swift; path = DataModel/Tweet.swift; sourceTree = "<group>"; };
 		3DB776B51A0C132400114CD3 /* SugarRecordContextProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordContextProtocol.swift; sourceTree = "<group>"; };
 		3DB776B61A0C132400114CD3 /* SugarRecordObjectProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordObjectProtocol.swift; sourceTree = "<group>"; };
 		3DB776B71A0C132400114CD3 /* SugarRecordStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordStackProtocol.swift; sourceTree = "<group>"; };
@@ -345,7 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				3D12551B1A1440D800AB6B6F /* Model.xcdatamodeld */,
-				3D12551E1A14410F00AB6B6F /* Tweet.swift */,
+				3DB126671A14AE8A00C5E9D2 /* Tweet.swift */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -952,7 +952,7 @@
 				3DE115181A0C11CC00F94C43 /* AppDelegate.swift in Sources */,
 				3DB7774E1A0C154800114CD3 /* TwitterListProtocols.swift in Sources */,
 				3DB776DD1A0C132400114CD3 /* SugarRecordFinder+FetchedResultsController.swift in Sources */,
-				3D12551F1A14410F00AB6B6F /* Tweet.swift in Sources */,
+				3DB126681A14AE8A00C5E9D2 /* Tweet.swift in Sources */,
 				3DB7774C1A0C154800114CD3 /* TwitterListItem.swift in Sources */,
 				3D66A0221A10AA1C009484AA /* TwitterClient.swift in Sources */,
 				3DB7774A1A0C154800114CD3 /* TwitterListLocalDataManager.swift in Sources */,

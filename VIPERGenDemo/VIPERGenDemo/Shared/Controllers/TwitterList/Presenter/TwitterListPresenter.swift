@@ -63,7 +63,10 @@ class TwitterListPresenter: TwitterListPresenterProtocol, TwitterListInteractorO
         let twitterListItem: TwitterListItem = self.interactor!.twitterListItemAtIndexPath(indexPath)
         view.set(body: twitterListItem.body!)
         view.set(avatar: twitterListItem.avatar!)
-        view.set(date: "")
+        let dateFormater: NSDateFormatter = NSDateFormatter()
+        dateFormater.dateStyle = .MediumStyle
+        dateFormater.doesRelativeDateFormatting = true
+        view.set(date: dateFormater.stringFromDate(twitterListItem.date!))
         view.set(username: twitterListItem.username!)
     }
     

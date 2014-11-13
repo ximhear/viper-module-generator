@@ -92,8 +92,8 @@ protocol TwitterListAPIDataManagerInputProtocol: class
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
-    func downloadTweets(#fromID: Int32, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
-    func downloadTweets(#beforeID: Int32, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
+    func downloadTweets(#fromID: Double, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
+    func downloadTweets(#beforeID: Double, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
     func downloadTweets(amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
 }
 
@@ -105,8 +105,8 @@ protocol TwitterListLocalDataManagerInputProtocol: class
     */
     func logoutUser()
     func loadLocalTweets()
-    func mostRecentTweetIdentifier() -> Int32?
-    func oldestTweetIdentifier() -> Int32?
+    func mostRecentTweetIdentifier() -> Double?
+    func oldestTweetIdentifier() -> Double?
     func persist(#tweets: [TwitterListItem])
     func numberOfTweets(inSection section: Int) -> Int
     func numberOfSections() -> Int

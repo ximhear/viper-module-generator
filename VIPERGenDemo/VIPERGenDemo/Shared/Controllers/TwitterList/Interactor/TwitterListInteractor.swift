@@ -30,9 +30,9 @@ class TwitterListInteractor: TwitterListInteractorInputProtocol, TwitterListLoca
     {
         if downloading { return }
         downloading = true
-        let mostRecentIdentifier: Int32? = self.localDatamanager?.mostRecentTweetIdentifier()
+        let mostRecentIdentifier: Double? = self.localDatamanager?.mostRecentTweetIdentifier()
         if mostRecentIdentifier != nil {
-            self.APIDataManager?.downloadTweets(beforeID: mostRecentIdentifier!, amount: 20, completion: { [weak self] (error, tweets) -> () in
+            self.APIDataManager?.downloadTweets(fromID: mostRecentIdentifier!, amount: 20, completion: { [weak self] (error, tweets) -> () in
                 self?.downloading = false
                 if error != nil {
                     completion(error: error)
@@ -66,16 +66,31 @@ class TwitterListInteractor: TwitterListInteractorInputProtocol, TwitterListLoca
     {
         if downloading { return }
         downloading = true
-        let oldestIdentifier: Int32? = self.localDatamanager?.oldestTweetIdentifier()
-        self.APIDataManager?.downloadTweets(beforeID: oldestIdentifier!, amount: 20, completion: { [weak self] (error, tweets) -> () in
-            self?.downloading = false
-            if error != nil {
-                completion(error: error)
-            }
-            else if tweets != nil{
-                self?.localDatamanager?.persist(tweets: tweets!)
-            }
-        })
+        let oldestIdentifier: Double? = self.localDatamanager?.oldestTweetIdentifier()
+        if (oldestIdentifier != nil) {
+            self.APIDataManager?.downloadTweets(beforeID: oldestIdentifier!, amount: 20, completion: { [weak self] (error, tweets) -> () in
+                self?.downloading = false
+                if error != nil {
+                    completion(error: error)
+                }
+                else if tweets != nil{
+                    self?.localDatamanager?.persist(tweets: tweets!)
+                }
+            })
+        }
+        else {
+            self.APIDataManager?.downloadTweets(20, completion: { [weak self] (error, tweets) -> () in
+                self?.downloading = false
+                if error != nil {
+                    completion(error: error)
+                }
+                else if tweets != nil{
+                    self?.localDatamanager?.persist(tweets: tweets!)
+                    completion(error: nil)
+                }
+            })
+        }
+        
     }
     
     func numberOfTweets(inSection section: Int) -> Int

@@ -9,13 +9,13 @@
 import Foundation
 import SwifteriOS
 
-let SEARCH_FILTER = "@nsbarcelona"
+let SEARCH_FILTER = "#viper"
 
 class TwitterListAPIDataManager: TwitterListAPIDataManagerInputProtocol
 {
     init() {}
     
-    func downloadTweets(#fromID: Int32, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
+    func downloadTweets(#fromID: Double, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
     {
         TwitterClient.sharedInstance.getSearchTweetsWithQuery(SEARCH_FILTER, geocode: nil, lang: nil, locale: nil, resultType: nil, count: amount, until: nil, sinceID: "\(fromID)", maxID: nil, includeEntities: nil, callback: nil, success: { (statuses, searchMetadata) -> Void in
             completion(error: nil, tweets: TwitterListAPIDataManager.twitterListItemsFromJSONArray(statuses))
@@ -24,7 +24,7 @@ class TwitterListAPIDataManager: TwitterListAPIDataManagerInputProtocol
         }
     }
     
-    func downloadTweets(#beforeID: Int32, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
+    func downloadTweets(#beforeID: Double, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
     {
         TwitterClient.sharedInstance.getSearchTweetsWithQuery(SEARCH_FILTER, geocode: nil, lang: nil, locale: nil, resultType: nil, count: amount, until: nil, sinceID: nil, maxID: "\(beforeID)", includeEntities: nil, callback: nil, success: { (statuses, searchMetadata) -> Void in
             completion(error: nil, tweets: TwitterListAPIDataManager.twitterListItemsFromJSONArray(statuses))

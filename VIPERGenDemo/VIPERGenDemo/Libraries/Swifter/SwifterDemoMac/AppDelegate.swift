@@ -25,6 +25,7 @@
 
 import Cocoa
 import SwifterMac
+import SugarRecord
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 
@@ -37,5 +38,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Swifter.handleOpenURL(NSURL(string: event.paramDescriptorForKeyword(AEKeyword(keyDirectObject))!.stringValue!))
     }
 
+    func applicationWillResignActive(application: UIApplication!) {
+        SugarRecord.applicationWillResignActive()
+    }
+    
+    func applicationWillEnterForeground(application: UIApplication!) {
+        SugarRecord.applicationWillEnterForeground()
+    }
+    
+    func applicationWillTerminate(application: UIApplication!) {
+        SugarRecord.applicationWillTerminate()
+    }
 }
 

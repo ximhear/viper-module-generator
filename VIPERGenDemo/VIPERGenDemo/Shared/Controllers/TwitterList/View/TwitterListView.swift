@@ -171,4 +171,13 @@ class TwitterListView: TWViewController, TwitterListViewProtocol, UITableViewDat
     {
         self.presenter!.userDidSelectTweet(atIndexPath: indexPath)
     }
+    
+    
+    // MARK: - UIScrollViewDelegate
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > scrollView.contentSize.height - 2*scrollView.frame.size.height {
+            self.presenter?.userDidScrollToBottom()
+        }
+    }
 }

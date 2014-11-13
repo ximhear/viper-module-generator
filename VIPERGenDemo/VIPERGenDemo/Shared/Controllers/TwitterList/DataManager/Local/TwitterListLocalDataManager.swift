@@ -30,16 +30,18 @@ class TwitterListLocalDataManager: TwitterListLocalDataManagerInputProtocol, NSF
         if error != nil { println("Error initializing fetched results controller")}
     }
     
-    func mostRecentTweetIdentifier() -> Int32?
+    func mostRecentTweetIdentifier() -> Double?
     {
-        let tweet: Tweet? = Tweet.sorted(by: "identifier", ascending: true).last().find()?.first as Tweet?
-        return tweet?.identifier.intValue
+        let foundTweets: [AnyObject]?  = Tweet.all().sorted(by: "identifier", ascending: true).find() as [AnyObject]?
+        let tweet: Tweet? = (foundTweets as [Tweet]).last?
+        return tweet?.identifier.doubleValue
     }
     
-    func oldestTweetIdentifier() -> Int32?
+    func oldestTweetIdentifier() -> Double?
     {
-        let tweet: Tweet? = Tweet.sorted(by: "identifier", ascending: true).first().find()?.first as Tweet?
-        return tweet?.identifier.intValue
+        let foundTweets: [AnyObject]?  = Tweet.all().sorted(by: "identifier", ascending: true).find() as [AnyObject]?
+        let tweet: Tweet? = (foundTweets as [Tweet]).first?
+        return tweet?.identifier.doubleValue
     }
     
     func persist(#tweets: [TwitterListItem])
