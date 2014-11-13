@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Haneke
 
-class TweetCell: UITableViewCell
+class TweetCell: UITableViewCell, TwitterListItemViewProtocol
 {
     private  struct Styles
     {
@@ -114,8 +115,32 @@ class TweetCell: UITableViewCell
             self.dateLabel.autoPinEdgeToSuperviewEdge(ALEdge.Trailing, withInset: Styles.OUTTER_MARGIN)
             self.dateLabel.autoPinEdgeToSuperviewEdge(ALEdge.Bottom, withInset: Styles.OUTTER_MARGIN)
             
+            self.layoutIfNeeded()
             self.didUpdateConstraints = true
         }
         super.updateConstraints()
+    }
+    
+    
+    // MARK: - TwitterListItemViewProtocol
+    
+    func set(#date: String)
+    {
+       self.dateLabel.text = date
+    }
+    
+    func set(#body: String)
+    {
+        self.bodyLabel.text = body
+    }
+    
+    func set(#avatar: String)
+    {
+        self.avatarView.hnk_setImageFromURL(NSURL(string: avatar)!)
+    }
+    
+    func set(#username: String)
+    {
+        self.userLabel.text = "@\(username)"
     }
 }

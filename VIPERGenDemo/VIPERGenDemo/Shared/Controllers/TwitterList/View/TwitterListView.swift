@@ -117,6 +117,25 @@ class TwitterListView: TWViewController, TwitterListViewProtocol, UITableViewDat
         ProgressHUD.showError(errorMessage)
     }
     
+    func contentWillChange()
+    {
+        self.tableView.beginUpdates()
+    }
+    
+    func contentDidChange()
+    {
+        self.tableView.endUpdates()
+    }
+    
+    func insertTweet(atIndexPath: NSIndexPath)
+    {
+        self.tableView.insertRowsAtIndexPaths([atIndexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
+    
+    func insertSection(atIndex: Int)
+    {
+        self.tableView.insertSections(NSIndexSet(index: atIndex), withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
     
     // MARK: - Status Bar
     
@@ -135,11 +154,9 @@ class TwitterListView: TWViewController, TwitterListViewProtocol, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         var tweetCell: TweetCell = self.tableView.dequeueReusableCellWithIdentifier("tweetCell", forIndexPath: indexPath) as TweetCell
-        tweetCell.userLabel.text = "@username"
-        tweetCell.bodyLabel.text = "asdgas gas dgasdg asdgasdg adsga sdg asdg asdg asd ga dsgaasdgasdgasdgagsg asdgasdgadgas"
-        tweetCell.dateLabel.text = "Monday"
-        tweetCell.setNeedsUpdateConstraints()
         tweetCell.updateConstraintsIfNeeded()
+        self.presenter?.setContentToView(tweetCell, indexPath: indexPath)
+        tweetCell.setNeedsUpdateConstraints()
         return tweetCell
     }
     

@@ -15,7 +15,7 @@ class TwitterListWireFrame: TwitterListWireFrameProtocol
         // Generating module components
         var view: TwitterListView = TwitterListView()
         var presenter: protocol<TwitterListPresenterProtocol, TwitterListInteractorOutputProtocol> = TwitterListPresenter()
-        var interactor: TwitterListInteractorInputProtocol = TwitterListInteractor()
+        var interactor: protocol<TwitterListInteractorInputProtocol, TwitterListLocalDataManagerOutputProtocol> = TwitterListInteractor()
         var APIDataManager: TwitterListAPIDataManagerInputProtocol = TwitterListAPIDataManager()
         var localDataManager: TwitterListLocalDataManagerInputProtocol = TwitterListLocalDataManager()
         var wireFrame: TwitterListWireFrameProtocol = TwitterListWireFrame()
@@ -28,6 +28,7 @@ class TwitterListWireFrame: TwitterListWireFrameProtocol
         interactor.presenter = presenter
         interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
+        localDataManager.interactor = interactor
         
         // Presenting
         let navigationController: TWNavigationController = TWNavigationController(rootViewController: view)

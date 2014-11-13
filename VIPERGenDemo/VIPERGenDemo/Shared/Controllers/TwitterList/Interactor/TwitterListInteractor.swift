@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TwitterListInteractor: TwitterListInteractorInputProtocol
+class TwitterListInteractor: TwitterListInteractorInputProtocol, TwitterListLocalDataManagerOutputProtocol
 {
     weak var presenter: TwitterListInteractorOutputProtocol?
     var APIDataManager: TwitterListAPIDataManagerInputProtocol?
@@ -30,26 +30,28 @@ class TwitterListInteractor: TwitterListInteractorInputProtocol
     {
         if downloading { return }
         downloading = true
-        let mostRecentDate: NSDate? = self.localDatamanager?.mostRecentTweetDate()
-        if mostRecentDate != nil {
-            self.APIDataManager?.downloadTweets(moreRecentThan: mostRecentDate!, amount: 20, completion: { [weak self] (error, tweets) -> () in
+        let mostRecentIdentifier: Int32? = self.localDatamanager?.mostRecentTweetIdentifier()
+        if mostRecentIdentifier != nil {
+            self.APIDataManager?.downloadTweets(beforeID: mostRecentIdentifier!, amount: 20, completion: { [weak self] (error, tweets) -> () in
                 self?.downloading = false
                 if error != nil {
                     completion(error: error)
                 }
                 else if tweets != nil{
                     self?.localDatamanager?.persist(tweets: tweets!)
+                    completion(error: nil)
                 }
             })
         }
         else {
-            self.APIDataManager?.downloadTweets(olderThan: NSDate(), amount: 20, completion: { [weak self] (error, tweets) -> () in
+            self.APIDataManager?.downloadTweets(20, completion: { [weak self] (error, tweets) -> () in
                 self?.downloading = false
                 if error != nil {
                     completion(error: error)
                 }
                 else if tweets != nil{
                     self?.localDatamanager?.persist(tweets: tweets!)
+                    completion(error: nil)
                 }
             })
         }
@@ -57,15 +59,15 @@ class TwitterListInteractor: TwitterListInteractorInputProtocol
     
     func loadLocalTweets()
     {
-        self.loadLocalTweets()
+        self.localDatamanager?.loadLocalTweets()
     }
     
     func downloadOlderTweets(completion: (error: NSError?) -> ())
     {
         if downloading { return }
         downloading = true
-        let oldestDate: NSDate? = self.localDatamanager?.oldestTweetDate()
-        self.APIDataManager?.downloadTweets(olderThan: oldestDate!, amount: 20, completion: { [weak self] (error, tweets) -> () in
+        let oldestIdentifier: Int32? = self.localDatamanager?.oldestTweetIdentifier()
+        self.APIDataManager?.downloadTweets(beforeID: oldestIdentifier!, amount: 20, completion: { [weak self] (error, tweets) -> () in
             self?.downloading = false
             if error != nil {
                 completion(error: error)
@@ -74,5 +76,44 @@ class TwitterListInteractor: TwitterListInteractorInputProtocol
                 self?.localDatamanager?.persist(tweets: tweets!)
             }
         })
+    }
+    
+    func numberOfTweets(inSection section: Int) -> Int
+    {
+        if localDatamanager != nil  { return self.localDatamanager!.numberOfTweets(inSection: section) }
+        return 0
+    }
+    
+    func numberOfSections() -> Int
+    {
+        if localDatamanager != nil  { return self.localDatamanager!.numberOfSections() }
+        return 0
+    }
+    
+    func twitterListItemAtIndexPath(indexPath: NSIndexPath) -> TwitterListItem
+    {
+        return self.localDatamanager!.twitterListItemAtIndexPath(indexPath)
+    }
+    
+    //MARK: - TwitterListLocalDataManagerOutputProtocol
+    
+    func tweetSectionsDidChange(changeType: TwitterListChangeType, atIndex Index: Int)
+    {
+        self.presenter?.tweetSectionsDidChange(changeType, atIndex: Index)
+    }
+    
+    func tweetDidChange(changeType: TwitterListChangeType, tweet: TwitterListItem, atIndexPath indexPath: NSIndexPath?, newIndexPath: NSIndexPath?)
+    {
+        self.presenter?.tweetDidChange(changeType, tweet: tweet, atIndexPath: indexPath, newIndexPath: newIndexPath)
+    }
+    
+    func tweetsListWillChange()
+    {
+        self.presenter?.tweetsListWillChange()
+    }
+    
+    func tweetsListDidChange()
+    {
+        self.presenter?.tweetsListDidChange()
     }
 }

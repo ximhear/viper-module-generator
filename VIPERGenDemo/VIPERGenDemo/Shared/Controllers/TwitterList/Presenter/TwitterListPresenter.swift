@@ -22,6 +22,7 @@ class TwitterListPresenter: TwitterListPresenterProtocol, TwitterListInteractorO
     func viewDidLoad()
     {
         updateTitle()
+        loadLocalTweets()
     }
     
     func logout()
@@ -57,6 +58,15 @@ class TwitterListPresenter: TwitterListPresenterProtocol, TwitterListInteractorO
         })
     }
     
+    func setContentToView(view: TwitterListItemViewProtocol, indexPath: NSIndexPath)
+    {
+        let twitterListItem: TwitterListItem = self.interactor!.twitterListItemAtIndexPath(indexPath)
+        view.set(body: twitterListItem.body!)
+        view.set(avatar: twitterListItem.avatar!)
+        view.set(date: "")
+        view.set(username: twitterListItem.username!)
+    }
+    
     
     // MARK - Formatting
     
@@ -67,21 +77,52 @@ class TwitterListPresenter: TwitterListPresenterProtocol, TwitterListInteractorO
     
     func numberOfTweets(inSection section: Int) -> Int
     {
-        return 100
+        if (self.interactor != nil) { return self.interactor!.numberOfTweets(inSection: section)}
+        return 0
     }
 
     func numberOfSections() -> Int
     {
-        return 1
+        if (self.interactor != nil) { return self.interactor!.numberOfSections()}
+        return 0
     }
     
     func setTweetContent(usingPresenter presenter: AnyObject)
     {
-        
+        //TODO
     }
     
     func userDidSelectTweet(atIndexPath indexPath: NSIndexPath)
     {
-        //TODO
+        //TODO - Not implemented yet
+    }
+    
+    
+    //MARK: - TwitterListInteractorOutputProtocol
+    
+    func tweetSectionsDidChange(changeType: TwitterListChangeType, atIndex Index: Int)
+    {
+        if changeType == TwitterListChangeType.Insert
+        {
+            self.view?.insertSection(Index)
+        }
+    }
+    
+    func tweetDidChange(changeType: TwitterListChangeType, tweet: TwitterListItem, atIndexPath indexPath: NSIndexPath?, newIndexPath: NSIndexPath?)
+    {
+        if changeType == TwitterListChangeType.Insert
+        {
+            self.view?.insertTweet(newIndexPath!)
+        }
+    }
+    
+    func tweetsListWillChange()
+    {
+        self.view?.contentWillChange()
+    }
+    
+    func tweetsListDidChange()
+    {
+        self.view?.contentDidChange()
     }
 }
