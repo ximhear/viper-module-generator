@@ -7,11 +7,10 @@
 ---
 
 ![](assets/barcelona.jpg)
-### _Index_
+# _Index_
 - ViewControllers
 - VIPER
 - Communication
-- Routing
 - Testing
 - Conclusions
 
@@ -27,7 +26,7 @@
 
 ---
 
-## Documentation, _books_, exmaples, _tutorials_
+## Documentation, _books_, examples, _tutorials_
 ### __objc.io, RayWenderlich, iOS Dev Weekly, NSHipster__
 
 ---
@@ -53,7 +52,7 @@
 
 ---
 
-> # [fit] A _view controller_ coordinates its efforts with _model objects_ and other controller objects—including other view controllers
+> # A _view controller_ coordinates its efforts with _model objects_ and other controller objects—including other view controllers
 -- Apple
 
 ---
@@ -66,6 +65,18 @@
   TBUploadCellDelegate,TBWatchersViewDelegate>
 ```
 :scream:
+
+---
+
+- View~~Controller~~Delegator
+
+```objectivec
+@interface TBThreadDetailViewController : RBViewController <UITableViewDataSource,
+ UITableViewDelegate, RBViewControllerURLProtocol, NSFetchedResultsControllerDelegate, TBObjectDetailHeaderCellDelegate,
+  TBUploadCellDelegate,TBWatchersViewDelegate>
+```
+:scream:
+
 - Multi Responsibility
 
 ```objectivec
@@ -77,6 +88,25 @@ NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:[Comment en
 :weary:
 
 ---
+
+- Monster files
+_size > 1500 lines_ :cry:
+
+---
+
+- Monster files
+_size > 1500 lines_ :cry:
+- Impossible to test :expressionless:
+
+---
+
+- Monster files
+_size > 1500 lines_ :cry:
+- Impossible to test :expressionless:
+- Components too coupled :anger:
+
+---
+
 - Monster files
 _size > 1500 lines_ :cry:
 - Impossible to test :expressionless:
@@ -100,14 +130,24 @@ _size > 1500 lines_ :cry:
 ---
 
 - Who will _persist_ the data?
+
+---
+- Who will _persist_ the data?
+- And the _API_ interaction?
+
+---
+- Who will _persist_ the data?
 - And the _API_ interaction?
 - Who controls the _navigation_?
 
 ---
 
-# _Viper_
-### View, Interactor, Presenter, Entity, and Routing
-#### [obc.io - Viper](http://www.objc.io/issue-13/viper.html)
+# __Viper__
+
+---
+
+![fit](assets/wat.jpg)
+
 ---
 
 ![](assets/barcelona.jpg)
@@ -117,6 +157,12 @@ _size > 1500 lines_ :cry:
 - Communication
 - Testing
 - Conclusions
+
+---
+
+# _Viper_
+### View, Interactor, Presenter, Entity, and Routing
+#### [obc.io - Viper](http://www.objc.io/issue-13/viper.html)
 
 ---
 
@@ -132,7 +178,7 @@ _size > 1500 lines_ :cry:
 
 ---
 
-![fit](assets/wat.jpg)
+![fit](assets/watwatwat.jpg)
 
 ---
 
@@ -161,7 +207,7 @@ _size > 1500 lines_ :cry:
 # _Interactor_
 - Associated to an unique _use case_ of the application
 - Works with _PONSO_ entities
-- Easy to develop using _TDD_
+- Coordinates both data managers
 
 ---
 
@@ -320,6 +366,10 @@ _size > 1500 lines_ :cry:
 # Testing _DataManager_
 
 ![30%, inline](assets/TestDataManager.png)
+
+---
+
+# __Demo__
 
 ---
 
