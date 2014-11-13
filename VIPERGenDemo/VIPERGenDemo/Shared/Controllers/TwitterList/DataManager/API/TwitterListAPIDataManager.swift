@@ -9,7 +9,7 @@
 import Foundation
 import SwifteriOS
 
-let SEARCH_FILTER = "#viper"
+let SEARCH_FILTER = "nsbarcelona"
 
 class TwitterListAPIDataManager: TwitterListAPIDataManagerInputProtocol
 {
@@ -17,16 +17,18 @@ class TwitterListAPIDataManager: TwitterListAPIDataManagerInputProtocol
     
     func downloadTweets(#fromID: Double, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
     {
-        TwitterClient.sharedInstance.getSearchTweetsWithQuery(SEARCH_FILTER, geocode: nil, lang: nil, locale: nil, resultType: nil, count: amount, until: nil, sinceID: "\(fromID)", maxID: nil, includeEntities: nil, callback: nil, success: { (statuses, searchMetadata) -> Void in
+        TwitterClient.sharedInstance.getSearchTweetsWithQuery(SEARCH_FILTER, geocode: nil, lang: nil, locale: nil, resultType: "recent", count: amount, until: nil, sinceID: "\(fromID)", maxID: nil, includeEntities: nil, callback: nil, success: { (statuses, searchMetadata) -> Void in
             completion(error: nil, tweets: TwitterListAPIDataManager.twitterListItemsFromJSONArray(statuses))
         }) { (error) -> Void in
             completion(error: error, tweets: nil)
         }
     }
     
-    func downloadTweets(#beforeID: Double, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
+    func downloadTweets(#before: NSDate, amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
     {
-        TwitterClient.sharedInstance.getSearchTweetsWithQuery(SEARCH_FILTER, geocode: nil, lang: nil, locale: nil, resultType: nil, count: amount, until: nil, sinceID: nil, maxID: "\(beforeID)", includeEntities: nil, callback: nil, success: { (statuses, searchMetadata) -> Void in
+        var dateFormater: NSDateFormatter = NSDateFormatter()
+        dateFormater.dateFormat = "yyyy-MM-dd"
+        TwitterClient.sharedInstance.getSearchTweetsWithQuery(SEARCH_FILTER, geocode: nil, lang: nil, locale: nil, resultType: "recent", count: amount, until: dateFormater.stringFromDate(before), sinceID: nil, maxID: nil, includeEntities: nil, callback: nil, success: { (statuses, searchMetadata) -> Void in
             completion(error: nil, tweets: TwitterListAPIDataManager.twitterListItemsFromJSONArray(statuses))
             }) { (error) -> Void in
                 completion(error: error, tweets: nil)
@@ -35,7 +37,7 @@ class TwitterListAPIDataManager: TwitterListAPIDataManagerInputProtocol
     
     func downloadTweets(amount: Int, completion: (error: NSError?, tweets: [TwitterListItem]?) -> ())
     {
-        TwitterClient.sharedInstance.getSearchTweetsWithQuery(SEARCH_FILTER, geocode: nil, lang: nil, locale: nil, resultType: nil, count: amount, until: nil, sinceID: nil, maxID: nil, includeEntities: nil, callback: nil, success: { (statuses, searchMetadata) -> Void in
+        TwitterClient.sharedInstance.getSearchTweetsWithQuery(SEARCH_FILTER, geocode: nil, lang: nil, locale: nil, resultType: "recent", count: amount, until: nil, sinceID: nil, maxID: nil, includeEntities: nil, callback: nil, success: { (statuses, searchMetadata) -> Void in
                 completion(error: nil, tweets: TwitterListAPIDataManager.twitterListItemsFromJSONArray(statuses))
             }) { (error) -> Void in
                 completion(error: error, tweets: nil)

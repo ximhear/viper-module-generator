@@ -28,11 +28,14 @@ class TwitterListInteractor: TwitterListInteractorInputProtocol, TwitterListLoca
     
     func refreshTweets(completion: (error: NSError?) -> ())
     {
-        if downloading { return }
+        if downloading {
+            completion(error: nil)
+            return
+        }
         downloading = true
         let mostRecentIdentifier: Double? = self.localDatamanager?.mostRecentTweetIdentifier()
         if mostRecentIdentifier != nil {
-            self.APIDataManager?.downloadTweets(fromID: mostRecentIdentifier!, amount: 20, completion: { [weak self] (error, tweets) -> () in
+            self.APIDataManager?.downloadTweets(fromID: mostRecentIdentifier!, amount: 100, completion: { [weak self] (error, tweets) -> () in
                 self?.downloading = false
                 if error != nil {
                     completion(error: error)
@@ -44,7 +47,7 @@ class TwitterListInteractor: TwitterListInteractorInputProtocol, TwitterListLoca
             })
         }
         else {
-            self.APIDataManager?.downloadTweets(20, completion: { [weak self] (error, tweets) -> () in
+            self.APIDataManager?.downloadTweets(100, completion: { [weak self] (error, tweets) -> () in
                 self?.downloading = false
                 if error != nil {
                     completion(error: error)
@@ -64,11 +67,14 @@ class TwitterListInteractor: TwitterListInteractorInputProtocol, TwitterListLoca
     
     func downloadOlderTweets(completion: (error: NSError?) -> ())
     {
-        if downloading { return }
+        if downloading {
+            completion(error: nil)
+            return
+        }
         downloading = true
-        let oldestIdentifier: Double? = self.localDatamanager?.oldestTweetIdentifier()
-        if (oldestIdentifier != nil) {
-            self.APIDataManager?.downloadTweets(beforeID: oldestIdentifier!, amount: 20, completion: { [weak self] (error, tweets) -> () in
+        let oldestDate: NSDate? = self.localDatamanager?.oldestTweetDate()
+        if (oldestDate != nil) {
+            self.APIDataManager?.downloadTweets(before: oldestDate!, amount: 100, completion: { [weak self] (error, tweets) -> () in
                 self?.downloading = false
                 if error != nil {
                     completion(error: error)
@@ -79,7 +85,7 @@ class TwitterListInteractor: TwitterListInteractorInputProtocol, TwitterListLoca
             })
         }
         else {
-            self.APIDataManager?.downloadTweets(20, completion: { [weak self] (error, tweets) -> () in
+            self.APIDataManager?.downloadTweets(100, completion: { [weak self] (error, tweets) -> () in
                 self?.downloading = false
                 if error != nil {
                     completion(error: error)

@@ -33,6 +33,7 @@ public extension Swifter {
 
         var parameters = Dictionary<String, AnyObject>()
         parameters["q"] = q
+        parameters["rpp"] = "1000"
 
         if geocode != nil {
             parameters["geocode"] = geocode!

@@ -37,11 +37,11 @@ class TwitterListLocalDataManager: TwitterListLocalDataManagerInputProtocol, NSF
         return tweet?.identifier.doubleValue
     }
     
-    func oldestTweetIdentifier() -> Double?
+    func oldestTweetDate() -> NSDate?
     {
         let foundTweets: [AnyObject]?  = Tweet.all().sorted(by: "identifier", ascending: true).find() as [AnyObject]?
         let tweet: Tweet? = (foundTweets as [Tweet]).first?
-        return tweet?.identifier.doubleValue
+        return tweet?.date
     }
     
     func persist(#tweets: [TwitterListItem])
