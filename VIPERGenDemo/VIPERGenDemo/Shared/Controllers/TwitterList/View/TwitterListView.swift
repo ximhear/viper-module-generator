@@ -43,6 +43,7 @@ class TwitterListView: TWViewController, TwitterListViewProtocol, UITableViewDat
         return control
     }()
     
+    
     // MARK - View Lifecycle
     
     override func viewDidLoad()
@@ -51,8 +52,22 @@ class TwitterListView: TWViewController, TwitterListViewProtocol, UITableViewDat
         self.setupSubviews()
         self.setupNavigationBar()
         self.setupAutolayouts()
+        self.setupObservers()
         self.navigationController?.setNeedsStatusBarAppearanceUpdate()
         self.presenter?.viewDidLoad()
+    }
+    
+    
+    // MARK: Observers
+    
+    func setupObservers()
+    {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "preferredContentSizeChanged:", name: UIContentSizeCategoryDidChangeNotification, object: nil)
+    }
+    
+    func preferredContentSizeChanged(notification: NSNotification)
+    {
+        self.tableView.reloadData()
     }
     
     
@@ -82,7 +97,6 @@ class TwitterListView: TWViewController, TwitterListViewProtocol, UITableViewDat
     
     private func setupAutolayouts()
     {
-        // TableView
         self.tableView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero)
     }
     
