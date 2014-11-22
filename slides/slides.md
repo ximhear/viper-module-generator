@@ -9,6 +9,28 @@
 
 ---
 
+![left, 50%](assets/me.jpg)
+
+## About me
+
+```swift
+public struct Me
+{
+  let name = "Pedro"
+  let surname = "Piñera Buendía"
+  let twitter = @"pepibumur"
+  let mail = "pepibumur@gmail.com"
+  let webiste = "www.ppinera.es"
+  let previousJob = "iOS Developer at Redbooth"
+  let currentJob = "Mobile Developer at 8fit"
+  let projects = ["SugarRecord": "github.com/sugarrecord",
+                "PopcornTV": "github.com/pepibumur/popcorntv",
+                "PPiAwesomeButton": "github.com/pepibumur/PPiAwesomeButton"]
+}
+```
+
+---
+
 ![](assets/barcelona.jpg)
 # _Index_
 - ViewControllers
