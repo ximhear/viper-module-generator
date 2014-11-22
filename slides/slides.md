@@ -149,6 +149,10 @@ _size > 1500 lines_ :cry:
 
 ---
 
+![](assets/gif.gif)
+
+---
+
 ## Clean Architecture
 ###_Independent from frameworks, UI, database and external entities. Easy to test_
 
