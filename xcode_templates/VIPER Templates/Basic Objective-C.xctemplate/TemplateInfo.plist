@@ -29,20 +29,23 @@
 	<string>Module following VIPER architecture in Objective-C</string>
 	<key>Definitions</key>
 	<dict>
-    <key>___FILEBASENAME___/Protocols/___FILEBASENAME___Protocols.h</key>
+    <key>___FILEBASENAME___View.m</key>
     <dict>
-        <key>Path</key>
-        <string>___FILEBASENAME___/Protocols/___FILEBASENAME___Protocols.h</string>
-        <key>Group</key>
+      <key>Path</key>
+      <string>./___FILEBASENAME___/View/___FILEBASENAME___View.m</string>
+      <key>Group</key>
         <array>
-        	  <string>___FILEBASENAME___</string>
-            <string>Protocols</string>
+          <string>___FILEBASENAME___</string>
+          <string>View</string>
         </array>
+      <key>PathType</key>
+      <string>Group</string>
     </dict>
+    <key>trying.png</key>
 	</dict>
 	<key>Nodes</key>
 	<array>
-    <string>___FILEBASENAME___/Protocols/___FILEBASENAME___Protocols.h</string>
+    <string>___FILEBASENAME___/View/___FILEBASENAME___View.m</string>
 	</array>
 </dict>
 </plist>
