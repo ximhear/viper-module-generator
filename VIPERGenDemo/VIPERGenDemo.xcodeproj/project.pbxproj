@@ -773,7 +773,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "___Redbooth___";
+				ORGANIZATIONNAME = "AUTHOR";
 			};
 			buildConfigurationList = B749E661FB627E9A7790FD49 /* Build configuration list for PBXProject "VIPERGenDemo" */;
 			compatibilityVersion = "Xcode 3.2";

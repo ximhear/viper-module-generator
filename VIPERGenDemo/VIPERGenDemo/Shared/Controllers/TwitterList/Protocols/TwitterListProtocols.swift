@@ -2,8 +2,8 @@
 //  TwitterListProtocols.swift
 //  TwitterListGenDemo
 //
-//  Created by Pedro Piñera Buendía on 22/08/14.
-//  Copyright (c) 2014 ___Redbooth___. All rights reserved.
+//  Created by AUTHOR on 22/08/14.
+//  Copyright (c) 2014 AUTHOR. All rights reserved.
 //
 
 import Foundation
