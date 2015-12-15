@@ -37,7 +37,10 @@ The implementation scheme returned by this generator is hardly inspired in the e
 ### Changelog 0.2.3
 - VIPER Example using the Twitter API 
 - Default template implemented in Swift
-- 
+
+### Changelog 0.2.5
+- Add `COMPANY` parameter to set the company name on the files header
+- Set Swift as the default language
 
 ### Expected in version 0.3
 - Integrate with XCode as a plugin (http://nshipster.com/xcode-plugins/)
@@ -88,6 +91,11 @@ You have just to execute the following command
 ```bash
 vipergen generate MyFirstViperModule --path=~/myproject/shared
 ```
+Another example:
+```bash
+vipergen generate MySecondViperModule --path=~/myproject/shared --author='My Name' --company='My Company' --template='existing_template' --language=swift
+```
+
 And then the files structure will be automatically created. Don't forget to add this folder to your project dragging it into the XCode/Appcode inspector
 
 ## How can I try the demo project?
