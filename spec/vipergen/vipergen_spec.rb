@@ -44,14 +44,14 @@ end
 describe Vipergen::Generator do
 	context "when renaming file content" do 
 		before (:each) do
-			File.open("test.txt", 'w') {|f| f.write("I'm a #{Vipergen::Generator::REPLACEMENT_KEY} file by #{Vipergen::Generator::AUTHOR_REPLACEMENT_KEY} on #{Vipergen::Generator::YEAR_REPLACEMENT_KEY}") }
+			File.open("test.txt", 'w') {|f| f.write("I'm a #{Vipergen::Generator::REPLACEMENT_KEY} file by #{Vipergen::Generator::AUTHOR_REPLACEMENT_KEY} @ #{Vipergen::Generator::COMPANY_REPLACEMENT_KEY} on #{Vipergen::Generator::YEAR_REPLACEMENT_KEY}") }
 		end
 
 		it "should rename every VIPER word to the given name" do
-			Vipergen::Generator.rename_file_content("test.txt","RENAMED", "pepito")
+			Vipergen::Generator.rename_file_content("test.txt","RENAMED", "pepito", "ViperGen")
 			file = File.open("test.txt", "rb")
 			content = file.read
-			expect(content).to eq("I'm a RENAMED file by pepito on #{Time.new.year}")
+			expect(content).to eq("I'm a RENAMED file by pepito @ ViperGen on #{Time.new.year}")
 		end
 
 		after (:each) do
@@ -66,18 +66,19 @@ describe Vipergen::Generator do
 
 		it "every file should be renamed in rename_files" do
 			expect(Vipergen::Generator).to receive(:rename_file)
-			Vipergen::Generator.rename_files(["#{Vipergen::Generator::REPLACEMENT_KEY}file.txt"], "MyModule", "Pepi")
+			Vipergen::Generator.rename_files(["#{Vipergen::Generator::REPLACEMENT_KEY}file.txt"], "MyModule", "Pepi", "ViperGen")
 		end
 
 		it "should raise a SyntaxError exeption if there's a file in the template without the proper name" do
-			expect{Vipergen::Generator.rename_files(["asgasgs.txt"], "MyModule", "Pepi")}.to raise_error
+			expect{Vipergen::Generator.rename_files(["asgasgs.txt"], "MyModule", "Pepi", "ViperGen")}.to raise_error
 		end
 
 		it "should rename the VIPER in name to the given name" do
 			file = "#{Vipergen::Generator::REPLACEMENT_KEY}test.txt"
 			name = "RENAMED"
 			author = "PEPI"
-			Vipergen::Generator.rename_file(file, name, author)
+                        company = "ViperGen"
+			Vipergen::Generator.rename_file(file, name, author, company)
 			expect(File.exist? "RENAMEDtest.txt").to eq(true)
 		end
 
@@ -85,8 +86,9 @@ describe Vipergen::Generator do
 			file = "#{Vipergen::Generator::REPLACEMENT_KEY}test.txt"
 			name = "RENAMED"
 			author = "PEPI"
+                        company = "ViperGen"
 			expect(Vipergen::Generator).to receive(:rename_file_content)
-			Vipergen::Generator.rename_file(file, name, author)
+			Vipergen::Generator.rename_file(file, name, author, company)
 		end
 
 		after (:each) do
