@@ -101,7 +101,7 @@ And then the files structure will be automatically created. Don't forget to add 
 ## How can I try the demo project?
 
 1. Clone the repo `git clone https://github.com/pepibumur/viper-module-generator.git`
-2. Move into the repo folder and update the git submodules `git sumodule update --init`
+2. Move into the repo folder and update the git submodules `git submodule update --init`
 3. In the folder VIPERGenDemo install the pods `pod install`
 4. Open the project from the `VIPERGenDemo.xcworkspace` file
 5. Enjoy it!
