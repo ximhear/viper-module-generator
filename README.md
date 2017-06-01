@@ -1,4 +1,4 @@
-Viper Module Generator
+Viper Module Generator G version
 ======================
 [![Code Climate](https://codeclimate.com/github/teambox/viper-module-generator/badges/gpa.svg)](https://codeclimate.com/github/teambox/viper-module-generator)
 [![Build Status](https://travis-ci.org/teambox/viper-module-generator.svg?branch=master)](https://travis-ci.org/teambox/viper-module-generator)
@@ -42,8 +42,8 @@ The implementation scheme returned by this generator is hardly inspired in the e
 - Add `COMPANY` parameter to set the company name on the files header
 - Set Swift as the default language
 
-### Expected in version 0.3
-- Integrate with XCode as a plugin (http://nshipster.com/xcode-plugins/)
+### Changelog 0.2.12
+- Add `PROJECT` parameter to set the company name on the files header
 
 ## Viper files structure
 ```bash
@@ -82,38 +82,29 @@ The implementation scheme returned by this generator is hardly inspired in the e
 ## How to install vipergen ?
 You can install it easily as using the gem. With ruby installed in your OSX execute:
 ```bash
-sudo gem install vipergen
+sudo gem install vipergeng
 ```
 If everything were right, you should have now the vipergem command available in your system console
 
 ## How to generate a VIPER module with a given name?
 You have just to execute the following command
 ```bash
-vipergen generate MyFirstViperModule --path=~/myproject/shared
+vipergeng generate MyFirstViperModule --path=~/myproject/shared
 ```
 Another example:
 ```bash
-vipergen generate MySecondViperModule --path=~/myproject/shared --author='My Name' --company='My Company' --template='existing_template' --language=swift
+vipergeng generate MySecondViperModule --path=~/myproject/shared --author='My Name' --company='My Company' --template='existing_template' --project='project name' --language=swift
 ```
 
 And then the files structure will be automatically created. Don't forget to add this folder to your project dragging it into the XCode/Appcode inspector
-
-## How can I try the demo project?
-
-1. Clone the repo `git clone https://github.com/pepibumur/viper-module-generator.git`
-2. Move into the repo folder and update the git submodules `git submodule update --init`
-3. In the folder VIPERGenDemo install the pods `pod install`
-4. Open the project from the `VIPERGenDemo.xcworkspace` file
-5. Enjoy it!
-
 
 ## Developer tips
 ### Update the gem 
 When the gem is updated it has to be reported to the gem repository. I followed this tutorial http://amaras-tech.co.uk/article/43/Creating_executable_gems that basically says that once you have your gem ready execute:
 ```bash
-gem build vipergen.gemspec
-gem install vipergen-0.1.gem
-gem push vipergen-0.1.gem
+gem build vipergeng.gemspec
+gem install vipergeng-0.1.gem
+gem push vipergeng-0.1.gem
 ```
 Then you'll be asked for your credentials in order to make the update in the repo (http://guides.rubygems.org/publishing/)
 
