@@ -7,7 +7,7 @@ import Foundation
 
 class VIPERWireFrame: VIPERWireFrameProtocol
 {
-    class func presentVIPERModule(fromView view: AnyObject)
+    static func presentVIPERModule(fromView view: AnyObject)
     {
         // Generating module components
         var view: VIPERViewProtocol = VIPERView()

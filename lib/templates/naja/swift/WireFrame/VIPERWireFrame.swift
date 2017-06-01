@@ -15,7 +15,7 @@ public class VIPERWireFrame: VIPERWireFrameProtocol {
     
     // MARK: Factory
     
-    public class func presentVIPERFromViewController(source: UIViewController) {
+    public static func presentVIPERFromViewController(source: UIViewController) {
         let presenter = VIPERPresenter()
         let view = VIPERView()
         /*
