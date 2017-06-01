@@ -1,28 +1,28 @@
 //
-// Created by AUTHOR
-// Copyright (c) YEAR AUTHOR. All rights reserved.
+//  ___FILENAME___.swift
+//  ___PROJECTNAME___
+//
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  Copyright © ___YEAR___ ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import Foundation
 
-protocol VIPERViewProtocol: class
-{
+protocol VIPERViewProtocol: class {
     var presenter: VIPERPresenterProtocol? { get set }
     /**
     * Add here your methods for communication PRESENTER -> VIEW
     */
 }
 
-protocol VIPERWireFrameProtocol: class
-{
+protocol VIPERWireFrameProtocol: class {
     static func presentVIPERModule(fromView view: AnyObject)
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
 }
 
-protocol VIPERPresenterProtocol: class
-{
+protocol VIPERPresenterProtocol: class {
     var view: VIPERViewProtocol? { get set }
     var interactor: VIPERInteractorInputProtocol? { get set }
     var wireFrame: VIPERWireFrameProtocol? { get set }
@@ -31,8 +31,7 @@ protocol VIPERPresenterProtocol: class
     */
 }
 
-protocol VIPERInteractorOutputProtocol: class
-{
+protocol VIPERInteractorOutputProtocol: class {
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */

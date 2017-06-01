@@ -1,22 +1,25 @@
 //
-// Created by AUTHOR
-// Copyright (c) YEAR AUTHOR. All rights reserved.
+//  ___FILENAME___.swift
+//  ___PROJECTNAME___
+//
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  Copyright © ___YEAR___ ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import Foundation
 
-class VIPERWireFrame: VIPERWireFrameProtocol
-{
-    static func presentVIPERModule(fromView view: AnyObject)
-    {
+class VIPERWireFrame: VIPERWireFrameProtocol {
+
+    static func presentVIPERModule(fromView: AnyObject) {
+
         // Generating module components
-        var view: VIPERViewProtocol = VIPERView()
-        var presenter: protocol<VIPERPresenterProtocol, VIPERInteractorOutputProtocol> = VIPERPresenter()
-        var interactor: VIPERInteractorInputProtocol = VIPERInteractor()
-        var APIDataManager: VIPERAPIDataManagerInputProtocol = VIPERAPIDataManager()
-        var localDataManager: VIPERLocalDataManagerInputProtocol = VIPERLocalDataManager()
-        var wireFrame: VIPERWireFrameProtocol = VIPERWireFrame()
-        
+        let view: VIPERViewProtocol = VIPERViewController()
+        let presenter: VIPERPresenterProtocol & VIPERInteractorOutputProtocol = VIPERPresenter()
+        let interactor: VIPERInteractorInputProtocol = VIPERInteractor()
+        let APIDataManager: VIPERAPIDataManagerInputProtocol = VIPERAPIDataManager()
+        let localDataManager: VIPERLocalDataManagerInputProtocol = VIPERLocalDataManager()
+        let wireFrame: VIPERWireFrameProtocol = VIPERWireFrame()
+
         // Connecting
         view.presenter = presenter
         presenter.view = view

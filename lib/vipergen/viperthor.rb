@@ -9,8 +9,9 @@ module Vipergen
 	option :path, :required => true, :type => :string , :desc => "Path where the output module is going to be saved"
 	option :author, :required => false, :default => 'VIPER', :type => :string , :desc => "Author to be specified on the file's header. Otherwise VIPER will be used"
 	option :company, :required => false, :default => 'Company', :type => :string, :desc => "Company to be specified on the file's header. Otherwise Company will be used"
+    option :project, :required => false, :default => 'Project', :type => :string, :desc => "Project to be specified on the file's header. Otherwise Project will be used"
 	def generate(name)
-	   Vipergen::Generator.generate_viper(options[:template], options[:language], name, options[:path], options[:author], options[:company])
+	   Vipergen::Generator.generate_viper(options[:template], options[:language], name, options[:path], options[:author], options[:company], options[:project])
 	end
 
 	desc "templates", "Get a list of available templates"

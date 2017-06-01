@@ -1,4 +1,4 @@
 module Vipergen
   NAME = "vipergeng"
-  VERSION = "0.2.7"
+  VERSION = "0.2.12"
 end
