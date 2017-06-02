@@ -8,7 +8,7 @@ Viper Module Generator G version
 
 ![image](http://www.objc.io/images/issue-13/2014-06-07-viper-intro.jpg)
 
-Gem to generate VIPER modules to use them in your Objective-C/Swift projects
+Gem to generate VIPER modules to use them in your Swift projects
 The implementation scheme returned by this generator is hardly inspired in the example and post of Objc.io, http://www.objc.io/issue-13/viper.html .
 
 - [Features](#features)
@@ -23,7 +23,7 @@ The implementation scheme returned by this generator is hardly inspired in the e
 - [Resources](#resources)
 
 ## Features
-- Generates the module in Swift and Objective-C
+- Generates the module in Swift
 - Ready to be installed as a gem https://rubygems.org/gems/VIPERGen
 
 ### Changelog 0.1.6
@@ -47,24 +47,6 @@ The implementation scheme returned by this generator is hardly inspired in the e
 
 ## Viper files structure
 ```bash
-.objc
-+-- DataManager
-|   +-- VIPERDataManager.h
-|   +-- VIPERDataManager.m
-+-- Interactor
-|   +-- VIPERInteractor.h
-|   +-- VIPERInteractor.m
-+-- Presenter
-|   +-- VIPERPresenter.h
-|   +-- VIPERPresenter.m
-+-- ViewController
-|   +-- VIPERViewController.h
-|   +-- VIPERViewController.m
-+-- WireFrame
-|   +-- VIPERWireFrame.h
-|   +-- VIPERWireFrame.m
-+-- Protocols
-|   +-- VIPERProtocols.h
 .swift
 +-- DataManager
 |   +-- VIPERDataManager.swift
@@ -93,7 +75,7 @@ vipergeng generate MyFirstViperModule --path=~/myproject/shared
 ```
 Another example:
 ```bash
-vipergeng generate MySecondViperModule --path=~/myproject/shared --author='My Name' --company='My Company' --project='project name' --language=swift
+vipergeng generate MySecondViperModule --path=~/myproject/shared --author='My Name' --company='My Company' --project='project name'
 ```
 
 And then the files structure will be automatically created. Don't forget to add this folder to your project dragging it into the XCode/Appcode inspector
@@ -111,7 +93,7 @@ Then you'll be asked for your credentials in order to make the update in the rep
 ### Add a new template
 Are you interested in VIPER and you would like to contribute with this gem adding new templates? Feel free to do it. It's pretty easy. You've just to:
 - Create a folder inside `templates` with the name of your template
-- You'll have to create inside the templates in both languages, Swift and Objective-C (get inspired from existing templates)
+- You'll have to create inside the templates in Swift (get inspired from existing templates)
 - Use the word VIPER where you want the name to be replaced in.
 - Remember to add the file viperspec.yml with the description of your template as below:
 ```yaml
