@@ -42,7 +42,7 @@ The implementation scheme returned by this generator is hardly inspired in the e
 - Add `COMPANY` parameter to set the company name on the files header
 - Set Swift as the default language
 
-### Changelog 0.2.12
+### Changelog 0.2.13
 - Add `PROJECT` parameter to set the company name on the files header
 
 ## Viper files structure
@@ -93,7 +93,7 @@ vipergeng generate MyFirstViperModule --path=~/myproject/shared
 ```
 Another example:
 ```bash
-vipergeng generate MySecondViperModule --path=~/myproject/shared --author='My Name' --company='My Company' --template='existing_template' --project='project name' --language=swift
+vipergeng generate MySecondViperModule --path=~/myproject/shared --author='My Name' --company='My Company' --project='project name' --language=swift
 ```
 
 And then the files structure will be automatically created. Don't forget to add this folder to your project dragging it into the XCode/Appcode inspector
