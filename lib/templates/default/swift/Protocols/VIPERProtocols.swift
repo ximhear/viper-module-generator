@@ -6,7 +6,7 @@
 //  Copyright © ___YEAR___ ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol VIPERViewProtocol: class {
     var presenter: VIPERPresenterProtocol? { get set }
@@ -16,7 +16,7 @@ protocol VIPERViewProtocol: class {
 }
 
 protocol VIPERWireFrameProtocol: class {
-    static func presentVIPERModule(fromView view: AnyObject)
+    static func presentVIPERModule(fromVC: UIViewController)
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */

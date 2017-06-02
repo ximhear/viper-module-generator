@@ -62,7 +62,8 @@ module Vipergen
 			content = content.gsub((Vipergen::Generator::COMPANY_REPLACEMENT_KEY), company)
             content = content.gsub((Vipergen::Generator::PROJECT_REPLACEMENT_KEY), project)
             content = content.gsub((Vipergen::Generator::FILE_REPLACEMENT_KEY), File.basename(filename,File.extname(filename)))
-            content = content.gsub((Vipergen::Generator::DATE_REPLACEMENT_KEY), "#{Time.new.month}/#{Time.new.day}/#{Time.new.year%100}")
+			str = '%02d/%02d/%02d' % [Time.new.day, Time.new.month, Time.new.year%100]
+            content = content.gsub((Vipergen::Generator::DATE_REPLACEMENT_KEY), str)
 
 			# Saving content with replaced string
 			File.open(filename, "w+") do |file|
