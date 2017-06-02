@@ -7,9 +7,9 @@ module Vipergen
 	# option :language, :required => false, :default => 'swift', :type => :string, :desc => "The language of the generated module (swift, objc)"
 	option :template, :required => false, :default => 'default', :type => :string , :desc => "Template for the generation"
 	option :path, :required => true, :type => :string , :desc => "Path where the output module is going to be saved"
-	option :author, :required => false, :default => 'VIPER', :type => :string , :desc => "Author to be specified on the file's header. Otherwise VIPER will be used"
-	option :company, :required => false, :default => 'Company', :type => :string, :desc => "Company to be specified on the file's header. Otherwise Company will be used"
-    option :project, :required => false, :default => 'Project', :type => :string, :desc => "Project to be specified on the file's header. Otherwise Project will be used"
+	option :author, :required => false, :default => 'AuthorXXX', :type => :string , :desc => "Author to be specified on the file's header. Otherwise VIPER will be used"
+	option :company, :required => false, :default => 'CompanyXXX', :type => :string, :desc => "Company to be specified on the file's header. Otherwise Company will be used"
+    option :project, :required => false, :default => 'ProjectXXX', :type => :string, :desc => "Project to be specified on the file's header. Otherwise Project will be used"
 	def generate(name)
 	   Vipergen::Generator.generate_viper(options[:template], 'swift', name, options[:path], options[:author], options[:company], options[:project])
 	end
