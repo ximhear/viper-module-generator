@@ -89,8 +89,8 @@ updated_at: 2014-08-24
 - Report it as a PR in this repo updating the gem version in Gemspec.
 
 ## VIPER 참조 사이트
-https://www.objc.io/issues/13-architecture/viper/
-https://swifting.io/blog/2016/03/07/8-viper-to-be-or-not-to-be/
+- https://www.objc.io/issues/13-architecture/viper/
+- https://swifting.io/blog/2016/03/07/8-viper-to-be-or-not-to-be/
 
 ## Resources
 - Rspec documentation: http://rubydoc.info/gems/rspec-expectations/frames
