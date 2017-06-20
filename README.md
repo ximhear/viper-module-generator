@@ -24,26 +24,10 @@ The implementation scheme returned by this generator is hardly inspired in the e
 
 ## Features
 - Generates the module in Swift
-- Ready to be installed as a gem https://rubygems.org/gems/VIPERGen
+- Ready to be installed as a gem https://rubygems.org/gems/vipergeng
 
-### Changelog 0.1.6
-- Added `templates` command to know which templates are available
-- YAML file in each template with the information about the template (more scalable)
-
-### Changelog 0.1
-- Added default template
-- Fully components tested
-
-### Changelog 0.2.3
-- VIPER Example using the Twitter API 
-- Default template implemented in Swift
-
-### Changelog 0.2.5
-- Add `COMPANY` parameter to set the company name on the files header
-- Set Swift as the default language
-
-### Changelog 0.2.13
-- Add `PROJECT` parameter to set the company name on the files header
+### Changelog 0.2.23
+- 날짜 포맷을 바꿈.
 
 ## Viper files structure
 ```bash
@@ -61,7 +45,7 @@ The implementation scheme returned by this generator is hardly inspired in the e
 +-- Protocols
 |   +-- VIPERProtocols.swift
 ```
-## How to install vipergen ?
+## How to install vipergeng ?
 You can install it easily as using the gem. With ruby installed in your OSX execute:
 ```bash
 sudo gem install vipergeng

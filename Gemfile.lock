@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    vipergen (0.2.5)
+    vipergeng (0.2.23)
       thor
 
 GEM
@@ -35,7 +35,7 @@ GEM
       multi_json
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
-    thor (0.19.1)
+    thor (0.19.4)
 
 PLATFORMS
   ruby
@@ -46,7 +46,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   rake
   rspec
-  vipergen!
+  vipergeng!
 
 BUNDLED WITH
-   1.10.6
+   1.13.7
