@@ -29,6 +29,10 @@ The implementation scheme returned by this generator is hardly inspired in the e
 ### Changelog 0.2.23
 - 날짜 포맷을 바꿈.
 
+### Changelog 1.0.1
+- g command 추가.
+- generate or g 사용시 --path 인자를 지정하지 않으면 현재 폴더에 생성하도록 수정
+
 ## Viper files structure
 ```bash
 .swift
@@ -54,8 +58,14 @@ If everything were right, you should have now the vipergem command available in 
 
 ## How to generate a VIPER module with a given name?
 You have just to execute the following command
+
+--path 지정을 하지 않으면 현재 폴더에 생성.
 ```bash
 vipergeng generate MyFirstViperModule --path=~/myproject/shared
+```
+or
+```bash
+vipergeng g MyFirstViperModule
 ```
 Another example:
 ```bash
