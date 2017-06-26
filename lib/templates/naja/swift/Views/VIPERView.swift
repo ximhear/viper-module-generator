@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class VIPERView: UIViewController, VIPERViewProtocol {
+class VIPERView: _BASE_VIEW_CONTROLLER_, VIPERViewProtocol {
     
     // MARK: Properties
 

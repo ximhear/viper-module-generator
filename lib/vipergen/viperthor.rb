@@ -10,8 +10,9 @@ module Vipergen
 	option :author, :required => false, :default => 'AuthorXXX', :type => :string , :desc => "Author to be specified on the file's header. Otherwise VIPER will be used"
 	option :company, :required => false, :default => 'CompanyXXX', :type => :string, :desc => "Company to be specified on the file's header. Otherwise Company will be used"
 	option :project, :required => false, :default => 'ProjectXXX', :type => :string, :desc => "Project to be specified on the file's header. Otherwise Project will be used"
+	option :base, :required => false, :default => 'UIViewController', :type => :string, :desc => "View Controller의 베이스 클래스 이름"
 	def generate(name)
-	   Vipergen::Generator.generate_viper(options[:template], 'swift', name, options[:path], options[:author], options[:company], options[:project])
+	   Vipergen::Generator.generate_viper(options[:template], 'swift', name, options[:path], options[:author], options[:company], options[:project], options[:base])
 	end
 
 	desc "g MODULE", "Generate a VIPER module"
@@ -20,8 +21,9 @@ module Vipergen
 	option :author, :required => false, :default => 'AuthorXXX', :type => :string , :desc => "Author to be specified on the file's header. Otherwise VIPER will be used"
 	option :company, :required => false, :default => 'CompanyXXX', :type => :string, :desc => "Company to be specified on the file's header. Otherwise Company will be used"
 	option :project, :required => false, :default => 'ProjectXXX', :type => :string, :desc => "Project to be specified on the file's header. Otherwise Project will be used"
+	option :base, :required => false, :default => 'UIViewController', :type => :string, :desc => "View Controller의 베이스 클래스 이름"
 	def g(name)
-		Vipergen::Generator.generate_viper(options[:template], 'swift', name, options[:path], options[:author], options[:company], options[:project])
+		Vipergen::Generator.generate_viper(options[:template], 'swift', name, options[:path], options[:author], options[:company], options[:project], options[:base])
 	end
 
 	desc "templates", "Get a list of available templates"

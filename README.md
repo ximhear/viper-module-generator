@@ -33,6 +33,10 @@ The implementation scheme returned by this generator is hardly inspired in the e
 - g command 추가.
 - generate or g 사용시 --path 인자를 지정하지 않으면 현재 폴더에 생성하도록 수정
 
+### Changelog 1.0.2
+- g/generate command에 --base 추가. base에는 ViewController의 base class를 지정한다. 디폴트값은 UIViewController이다.
+- ViewController 소스에 viewWill/DidAppear, viewWill/DidDisappear 추가
+
 ## Viper files structure
 ```bash
 .swift
@@ -54,7 +58,7 @@ You can install it easily as using the gem. With ruby installed in your OSX exec
 ```bash
 sudo gem install vipergeng
 ```
-If everything were right, you should have now the vipergem command available in your system console
+If everything were right, you should have now the vipergeng command available in your system console
 
 ## How to generate a VIPER module with a given name?
 You have just to execute the following command
@@ -69,7 +73,7 @@ vipergeng g MyFirstViperModule
 ```
 Another example:
 ```bash
-vipergeng generate MySecondViperModule --path=~/myproject/shared --author='My Name' --company='My Company' --project='project name'
+vipergeng generate MySecondViperModule --path=~/myproject/shared --author='My Name' --company='My Company' --project='project name --base=MyBaseViewController'
 ```
 
 And then the files structure will be automatically created. Don't forget to add this folder to your project dragging it into the XCode/Appcode inspector
@@ -83,7 +87,7 @@ gem install vipergeng-0.1.gem
 gem push vipergeng-0.1.gem
 ```
 Then you'll be asked for your credentials in order to make the update in the repo (http://guides.rubygems.org/publishing/)
-
+``
 ### Add a new template
 Are you interested in VIPER and you would like to contribute with this gem adding new templates? Feel free to do it. It's pretty easy. You've just to:
 - Create a folder inside `templates` with the name of your template
@@ -107,7 +111,7 @@ updated_at: 2014-08-24
 - XCode Plugins: http://nshipster.com/xcode-plugins/
 - XCodeProj gem (to modify project groups structure): https://github.com/CocoaPods/Xcodeproj
 - Thor, powerful Ruby library for command line: http://whatisthor.com/
-- Cocoa Design Patters: https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/CocoaDesignPatterns/CocoaDesignPatterns.html
+- Cocoa Design Patterns: https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/CocoaDesignPatterns/CocoaDesignPatterns.html
 
 ## Contact
 If you have any doubt about the gem or even if you want to make any suggestion you can do it directly to my email address, pedro@redbooth.com . You can use the issues Github page too
