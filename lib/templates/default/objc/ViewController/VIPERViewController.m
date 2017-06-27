@@ -8,7 +8,7 @@
 
 #import "VIPERViewController.h"
 
-@implementation VIPERView
+@implementation VIPERViewController
 
 #pragma mark - ViewController Lifecycle
 

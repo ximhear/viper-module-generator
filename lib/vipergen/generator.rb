@@ -10,7 +10,8 @@ module Vipergen
 		PROJECT_REPLACEMENT_KEY = "___PROJECTNAME___"
 		FILE_REPLACEMENT_KEY= "___FILENAME___"
 		DATE_REPLACEMENT_KEY= "___DATE___"
-		VC_REPLACEMENT_KEY= "_BASE_VIEW_CONTROLLER_"
+		BASE_VC_REPLACEMENT_KEY= "_BASE_VIEW_CONTROLLER_"
+		BASE_VC_IMPORT_REPLACE_KEY = '#import "_BASE_VIEW_CONTROLLER_.h"'
 
 		# Main method that generate the VIPER files structure
 		def self.generate_viper(template, language, name, path, author, company, project, baseviewcontroller)
@@ -66,7 +67,10 @@ module Vipergen
 			content = content.gsub((Vipergen::Generator::FILE_REPLACEMENT_KEY), File.basename(filename,File.extname(filename)))
 			str = '%02d/%02d/%02d' % [Time.new.day, Time.new.month, Time.new.year%100]
 			content = content.gsub((Vipergen::Generator::DATE_REPLACEMENT_KEY), str)
-			content = content.gsub((Vipergen::Generator::VC_REPLACEMENT_KEY), baseviewcontroller)
+			if baseviewcontroller == 'UIViewController' then
+				content = content.gsub((Vipergen::Generator::BASE_VC_IMPORT_REPLACE_KEY), '')
+			end
+			content = content.gsub((Vipergen::Generator::BASE_VC_REPLACEMENT_KEY), baseviewcontroller)
 
 			# Saving content with replaced string
 			File.open(filename, "w+") do |file|

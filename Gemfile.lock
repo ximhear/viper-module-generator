@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    vipergeng (1.0.3)
+    vipergeng (1.0.4)
       thor
 
 GEM

@@ -13,7 +13,6 @@
 #import "VIPERAPIDataManager.h"
 #import "VIPERInteractor.h"
 #import "VIPERPresenter.h"
-#import "VIPERWireframe.h"
 #import <UIKit/UIKit.h>
 
 @interface VIPERWireFrame : NSObject <VIPERWireFrameProtocol>

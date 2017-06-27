@@ -10,7 +10,7 @@
 #import "VIPERProtocols.h"
 #import "_BASE_VIEW_CONTROLLER_.h"
 
-@interface VIPERView : _BASE_VIEW_CONTROLLER_<VIPERViewProtocol>
+@interface VIPERViewController : _BASE_VIEW_CONTROLLER_<VIPERViewProtocol>
 
 @property (nonatomic, strong) id <VIPERPresenterProtocol> presenter;
 
