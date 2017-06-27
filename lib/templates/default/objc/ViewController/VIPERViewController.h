@@ -6,10 +6,12 @@
 //  Copyright © ___YEAR___ ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "VIPERProtocols.h"
+#import "_BASE_VIEW_CONTROLLER_.h"
 
+@interface VIPERView : _BASE_VIEW_CONTROLLER_<VIPERViewProtocol>
 
-@interface VIPERLocalDataManager : NSObject <VIPERLocalDataManagerInputProtocol>
+@property (nonatomic, strong) id <VIPERPresenterProtocol> presenter;
 
 @end

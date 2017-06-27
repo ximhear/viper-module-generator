@@ -1,6 +1,9 @@
 //
-// Created by AUTHOR
-// Copyright (c) YEAR AUTHOR. All rights reserved.
+//  ___FILENAME___.swift
+//  ___PROJECTNAME___
+//
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  Copyright © ___YEAR___ ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 #import "VIPERWireFrame.h"
@@ -10,7 +13,7 @@
 + (void)presentVIPERModuleFrom:(UIViewController*)fromViewController
 {
     // Generating module components
-    id <VIPERViewProtocol> view = [[VIPERView alloc] init];
+    id <VIPERViewProtocol> view = [[VIPERViewController alloc] initWithNibName:@"VIPERViewController" bundle:nil];
     id <VIPERPresenterProtocol, VIPERInteractorOutputProtocol> presenter = [VIPERPresenter new];
     id <VIPERInteractorInputProtocol> interactor = [VIPERInteractor new];
     id <VIPERAPIDataManagerInputProtocol> APIDataManager = [VIPERAPIDataManager new];
