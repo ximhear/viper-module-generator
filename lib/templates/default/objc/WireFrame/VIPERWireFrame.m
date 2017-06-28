@@ -10,8 +10,7 @@
 
 @implementation VIPERWireFrame
 
-+ (void)presentVIPERModuleFrom:(UIViewController*)fromViewController
-{
++ (void)presentVIPERModuleFrom:(UIViewController*)fromViewController {
     // Generating module components
     id <VIPERViewProtocol> view = [[VIPERViewController alloc] initWithNibName:@"VIPERViewController" bundle:nil];
     id <VIPERPresenterProtocol, VIPERInteractorOutputProtocol> presenter = [VIPERPresenter new];
