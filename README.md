@@ -37,6 +37,10 @@ The implementation scheme returned by this generator is hardly inspired in the e
 - g/generate command에 --base 추가. base에는 ViewController의 base class를 지정한다. 디폴트값은 UIViewController이다.
 - ViewController 소스에 viewWill/DidAppear, viewWill/DidDisappear 추가
 
+### Changelog 1.0.6
+- Swift/Objc 템플릿 코드 수정.
+- ViewController 코드에 코멘트로 샘플 코드 추가.
+
 ## Viper files structure
 ```bash
 .swift

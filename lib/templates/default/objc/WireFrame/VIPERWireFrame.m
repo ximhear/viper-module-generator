@@ -28,7 +28,9 @@
     interactor.APIDataManager = APIDataManager;
     interactor.localDataManager = localDataManager;
     
-    //TOODO - New view controller presentation (present, push, pop, .. )
+    //TODO - New view controller presentation (present, push, pop, .. )
+    // [fromViewController.navigationController pushViewController:view animated:YES];
+    // [fromViewController presentViewController:view animated:YES completion:nil];
 }
 
 @end

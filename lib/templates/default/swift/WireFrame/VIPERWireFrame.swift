@@ -28,6 +28,10 @@ class VIPERWireFrame: VIPERWireFrameProtocol {
         interactor.presenter = presenter
         interactor.APIDataManager = APIDataManager
         interactor.localDatamanager = localDataManager
+
+        //TODO - New view controller presentation (present, push, pop, .. )
+//        fromVC.navigationController?.pushViewController(view) //push 예제
+//        fromVC.present(view, animated: true, completion: nil) //present 예..
     }
 
 }
